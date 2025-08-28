@@ -1318,3 +1318,193 @@ a, button, .btn {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
+
+/* Sign In Page Styles */
+.signin-hero {
+    background: linear-gradient(135deg, #00704a 0%, #016341 100%);
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+}
+
+.signin-card {
+    border: none;
+    box-shadow: 0 20px 60px rgba(0, 112, 74, 0.15);
+    backdrop-filter: blur(10px);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.signin-title {
+    color: #1e3932;
+    font-family: 'Sodo-Sans Bold', sans-serif;
+}
+
+.signin-form .form-control {
+    border: 2px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.signin-form .form-control:focus {
+    border-color: #00704a;
+    box-shadow: 0 0 0 0.2rem rgba(0, 112, 74, 0.25);
+}
+
+.signin-benefits {
+    background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+}
+
+.benefit-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.benefit-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+}
+
+.benefit-icon {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Join Page Styles */
+.join-hero {
+    background: linear-gradient(135deg, #00704a 0%, #016341 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.join-card {
+    border: none;
+    box-shadow: 0 20px 60px rgba(0, 112, 74, 0.15);
+    backdrop-filter: blur(10px);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.join-title {
+    color: #1e3932;
+    font-family: 'Sodo-Sans Bold', sans-serif;
+}
+
+.join-form .form-control {
+    border: 2px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.join-form .form-control:focus {
+    border-color: #00704a;
+    box-shadow: 0 0 0 0.2rem rgba(0, 112, 74, 0.25);
+}
+
+.join-form .form-control.is-invalid {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.rewards-preview {
+    background: linear-gradient(135deg, #00704a 0%, #016341 100%);
+}
+
+.reward-benefit {
+    padding: 1.5rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.reward-benefit:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Button Enhancements for Auth Pages */
+.btn-success {
+    background: linear-gradient(135deg, #00704a 0%, #016341 100%);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, #016341 0%, #00704a 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 112, 74, 0.3);
+}
+
+.btn-outline-dark {
+    border: 2px solid #1e3932;
+    color: #1e3932;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-dark:hover {
+    background-color: #1e3932;
+    border-color: #1e3932;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design for Auth Pages */
+@media (max-width: 768px) {
+    .signin-hero, .join-hero {
+        min-height: auto;
+        padding: 2rem 0;
+    }
+    
+    .signin-card, .join-card {
+        margin: 1rem;
+        padding: 2rem !important;
+    }
+    
+    .reward-benefit {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Form Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.signin-card, .join-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Password Strength Indicator */
+.password-strength {
+    height: 4px;
+    border-radius: 2px;
+    margin-top: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.password-weak {
+    background-color: #dc3545;
+    width: 33%;
+}
+
+.password-medium {
+    background-color: #ffc107;
+    width: 66%;
+}
+
+.password-strong {
+    background-color: #28a745;
+    width: 100%;
+}
