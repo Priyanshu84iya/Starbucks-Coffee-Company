@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find a Starbucks Store - Locate your nearest Starbucks coffee shop with store hours, amenities, and directions.">
+    <title>Find a Store - Starbucks Coffee Company</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="imagens/favicon-16x16.png" type="image/x-icon">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Crete+Round:ital@0;1&family=Lato:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <!-- Js Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"
+        defer></script>
+    <!-- Bootstrap Icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Style Starbucks -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Leaflet CSS for interactive map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+    <header class="header_starbucks mb-3">
+        <nav class="navbar navbar-expand-md pt-3 ps-1">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html"><img src="imagens/starbucks-nav-logo.svg" alt="Logo Starbucks"></a>
+                <button class="navbar-toggler border-0 button" type="button" data-bs-target="#offcanvas"
+                    aria-expanded="false" aria-label="Toggle navigation" data-bs-toggle="offcanvas"
+                    aria-controls="offcanvasExample">
+                    <i class="bi bi-list"></i>
+                </button>
+                <div class="collapse navbar-collapse justify-content-evenly" id="navbarSupportedContent">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a href="menu.html" class="nav-link text-black text-uppercase">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="rewards.html" class="nav-link link text-black text-uppercase">Rewards</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="our-coffee.html" class="nav-link text-black text-uppercase">Our Coffee</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="social-impact.html" class="nav-link text-black text-uppercase">Social Impact</a>
+                        </li>
+                    </ul>
+
+                    <div class="container-fluid w-auto gap-3 m-0 p-0">
+                        <img src="imagens/sb-historias-logo.svg" alt="Starbucks Stories Logo"
+                            class="logotipo-history">
+                        <a href="store-locator.html" class="text-decoration-none text-dark fw-bolder">
+                            <i class="bi bi-geo-alt-fill text-dark icon me-2 icon"></i>
+                            <span class="text-icon">Find a store</span>
+                        </a>
+                        <a href="signin.html" class="btn btn-light rounded-pill border-black bg-white py-1 px-3 text-decoration-none text-dark">Sign in</a>
+                        <a href="join.html" class="btn btn-dark rounded-pill border-black bg-dark px-3 text-decoration-none text-white">Join now</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header p-0">
+                <ul class="nav flex-column w-100">
+                    <li class="nav-item w-100 ps-3 pb-2 pb-1 pt-1">
+                        <a href="menu.html" class="nav-link text-dark">Menu</a>
+                    </li>
+                    <li class="nav-item w-100 ps-3 pb-2 pb-1 pt-1">
+                        <a href="rewards.html" class="nav-link text-dark">Rewards</a>
+                    </li>
+                    <li class="nav-item w-100 ps-3 pb-2 pb-1 pt-1">
+                        <a href="our-coffee.html" class="nav-link text-dark">Our Coffee</a>
+                    </li>
+                    <li class="nav-item w-100 ps-3 pb-2 pb-1 pt-1">
+                        <a href="social-impact.html" class="nav-link text-dark">Social Impact</a>
+                    </li>
+                </ul>
+            </div>
+            <hr class="mt-2">
+            <div class="offcanvas-body d-flex flex-column align-items-center">
+                <a href="index.html"><img src="imagens/sb-historias-logo.svg" alt="Starbucks Stories Logo"
+                        width="130px"></a>
+                <a href="signin.html" class="btn btn-light text-dark rounded-pill w-100 border-black bg-white py-2 mt-4 mb-2 text-decoration-none">Sign in</a>
+                <a href="join.html" class="btn btn-dark rounded-pill w-100 border-black bg-dark py-2 text-decoration-none text-white">Join now</a>
+                <a href="store-locator.html" class="text-decoration-none text-dark fw-bolder mt-4 align-self-start ms-3">
+                    <i class="bi bi-geo-alt-fill text-dark icon mt-5 me-2 icon"></i>
+                    <span class="text-icon">Find a store</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container-fluid starbucks_main">
+        <!-- Hero Section -->
+        <section class="hero-section text-center py-5 mb-4">
+            <div class="container">
+                <h1 class="display-4 fw-bold text-color mb-3">Find a Starbucks Store</h1>
+                <p class="lead text-muted">Discover your nearest Starbucks location with store hours, amenities, and directions</p>
+            </div>
+        </section>
+
+        <!-- Search Section -->
+        <section class="container mb-5">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="search-container bg-white rounded-3 shadow-lg p-4">
+                        <div class="row g-3">
+                            <div class="col-md-8">
+                                <label for="locationSearch" class="form-label fw-bold text-color">Enter your location</label>
+                                <div class="input-group">
+                                    <span class="input-group-text border-end-0 bg-white">
+                                        <i class="bi bi-geo-alt text-muted"></i>
+                                    </span>
+                                    <input type="text" class="form-control border-start-0" id="locationSearch" 
+                                           placeholder="City, state, zip code or address" aria-label="Location search">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="radiusSelect" class="form-label fw-bold text-color">Search radius</label>
+                                <select class="form-select" id="radiusSelect">
+                                    <option value="5">5 miles</option>
+                                    <option value="10" selected>10 miles</option>
+                                    <option value="25">25 miles</option>
+                                    <option value="50">50 miles</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-success btn-lg rounded-pill w-100" onclick="searchStores()">
+                                    <i class="bi bi-search me-2"></i>Find stores
+                                </button>
+                                <button class="btn btn-outline-success btn-sm rounded-pill mt-2" onclick="useCurrentLocation()">
+                                    <i class="bi bi-crosshair me-2"></i>Use my current location
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter Options -->
+        <section class="container mb-4">
+            <div class="row">
+                <div class="col-12">
+                    <div class="filter-container bg-light rounded-3 p-3">
+                        <h6 class="text-color mb-3">Filter by amenities:</h6>
+                        <div class="row g-2">
+                            <div class="col-md-2 col-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="driveThru">
+                                    <label class="form-check-label small" for="driveThru">Drive-thru</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="wifi">
+                                    <label class="form-check-label small" for="wifi">Free WiFi</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="mobileOrder">
+                                    <label class="form-check-label small" for="mobileOrder">Mobile Order</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="wheelchair">
+                                    <label class="form-check-label small" for="wheelchair">Wheelchair Accessible</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="parking">
+                                    <label class="form-check-label small" for="parking">Parking Available</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="outdoor">
+                                    <label class="form-check-label small" for="outdoor">Outdoor Seating</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="container-fluid">
+            <div class="row">
+                <!-- Store List -->
+                <div class="col-lg-5">
+                    <div class="store-results">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="text-color mb-0">Nearby Stores</h5>
+                            <span class="text-muted small" id="storeCount">Showing 10 of 25 stores</span>
+                        </div>
+                        
+                        <div id="storeList" class="store-list">
+                            <!-- Store items will be populated by JavaScript -->
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <button class="btn btn-outline-success rounded-pill" onclick="loadMoreStores()">
+                                Load more stores
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Interactive Map -->
+                <div class="col-lg-7">
+                    <div class="map-container bg-light rounded-3 overflow-hidden">
+                        <div id="storeMap" style="height: 600px; width: 100%;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-starkbucks mt-5">
+        <div class="accordion d-md-none footer-accordion" id="accordionExample">
+            <div class="accordion-item border-0">
+                <h2 class="accordion-header">
+                    <button class="accordion-button text-dark" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        About us
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="nav flex-column gap-4">
+                            <li class="nav-item"><a href="about-us.html" class="text-decoration-none text-dark-emphasis">Our company</a></li>
+                            <li class="nav-item"><a href="our-coffee.html" class="text-decoration-none text-dark-emphasis">Our coffee</a></li>
+                            <li class="nav-item"><a href="customer-service.html" class="text-decoration-none text-dark-emphasis">Customer service</a></li>
+                            <li class="nav-item"><a href="compliance-privacy.html" class="text-decoration-none text-dark-emphasis">Compliance & Privacy</a></li>
+                            <li class="nav-item"><a href="code-of-ethics.html" class="text-decoration-none text-dark-emphasis">Code of Ethics and Conduct</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item border-0">
+                <h2 class="accordion-header">
+                    <button class="accordion-button text-dark" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+                        Careers
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="nav flex-column gap-4">
+                            <li class="nav-item"><a href="careers.html" class="text-decoration-none text-dark-emphasis">Career center</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item border-0">
+                <h2 class="accordion-header">
+                    <button class="accordion-button text-dark" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseOne">
+                        Social Impact
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="nav flex-column gap-4">
+                            <li class="nav-item"><a href="social-impact.html" class="text-decoration-none text-dark-emphasis">Community</a></li>
+                            <li class="nav-item"><a href="social-impact.html" class="text-decoration-none text-dark-emphasis">Environment</a></li>
+                            <li class="nav-item"><a href="social-impact.html" class="text-decoration-none text-dark-emphasis">Ethical sourcing</a></li>
+                            <li class="nav-item"><a href="social-impact.html" class="text-decoration-none text-dark-emphasis">Stories</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item border-0">
+                <h2 class="accordion-header">
+                    <button class="accordion-button text-dark" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseOne">
+                        Starbucks Rewards
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="nav flex-column gap-4">
+                            <li class="nav-item"><a href="download-app.html" class="text-decoration-none text-dark-emphasis">Download the app</a></li>
+                            <li class="nav-item"><a href="terms-conditions.html" class="text-decoration-none text-dark-emphasis">Terms & Conditions Starbucks Card</a></li>
+                            <li class="nav-item"><a href="terms-conditions.html" class="text-decoration-none text-dark-emphasis">Terms & Conditions Starbucks Rewards</a></li>
+                            <li class="nav-item"><a href="terms-conditions.html" class="text-decoration-none text-dark-emphasis">Terms & Conditions Gift Card</a></li>
+                            <li class="nav-item"><a href="code-of-ethics.html" class="text-decoration-none text-dark-emphasis">Code of Ethics and Conduct</a></li>
+                            <li class="nav-item"><a href="terms-conditions.html" class="text-decoration-none text-dark-emphasis">Terms & Conditions Order and Pay by Mobile</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <a href="index.html"><img src="imagens/sb-historias-logo.svg" alt="Starbucks Stories Logo"
+                    class="footer-img-logo ms-3 mt-3"></a>
+        </div>
+
+        <div class="container-fluid d-none d-md-flex footer-links justify-content-between">
+            <ul class="nav flex-column gap-4">
+                <li class="nav-item">About us</li>
+                <li class="nav-item mt-2"><a href="about-us.html" class="text-decoration-none text-dark-emphasis">Our company</a></li>
+                <li class="nav-item"><a href="our-coffee.html" class="text-decoration-none text-dark-emphasis">Our coffee</a></li>
+                <li class="nav-item"><a href="customer-service.html" class="text-decoration-none text-dark-emphasis">Customer service</a></li>
+                <li class="nav-item"><a href="compliance-privacy.html" class="text-decoration-none text-dark-emphasis">Compliance & Privacy</a></li>
+                <li class="nav-item"><a href="code-of-ethics.html" class="text-decoration-none text-dark-emphasis">Code of Ethics and Conduct</a></li>
+            </ul>
+
+            <ul class="nav flex-column gap-4">
+                <li class="nav-item nav-title">Careers</li>
+                <li class="nav-item mt-2"><a href="careers.html" class="text-decoration-none text-dark-emphasis">Career center</a></li>
+            </ul>
+
+            <ul class="nav flex-column gap-4">
+                <li class="nav-item nav-title">Social Impact</li>
+                <li class="nav-item mt-2"><a href="social-impact.html" class="text-decoration-none text-dark-emphasis">Community</a></li>
+                <li class="nav-item"><a href="social-impact.html" class="text-decoration-none text-dark-emphasis">Environment</a></li>
+                <li class="nav-item"><a href="social-impact.html" class="text-decoration-none text-dark-emphasis">Ethical sourcing</a></li>
+                <li class="nav-item"><a href="social-impact.html" class="text-decoration-none text-dark-emphasis">Stories</a></li>
+            </ul>
+
+            <ul class="nav flex-column gap-4 mb-3">
+                <li class="nav-item nav-title">Starbucks Rewards</li>
+                <li class="nav-item mt-2"><a href="download-app.html" class="text-decoration-none text-dark-emphasis">Download the app</a></li>
+                <li class="nav-item"><a href="terms-conditions.html" class="text-decoration-none text-dark-emphasis">Terms & Conditions Starbucks Card</a></li>
+                <li class="nav-item"><a href="terms-conditions.html" class="text-decoration-none text-dark-emphasis">Terms & Conditions Starbucks Rewards</a></li>
+                <li class="nav-item"><a href="terms-conditions.html" class="text-decoration-none text-dark-emphasis">Terms & Conditions Gift Card</a></li>
+                <li class="nav-item"><a href="code-of-ethics.html" class="text-decoration-none text-dark-emphasis">Code of Ethics and Conduct</a></li>
+                <li class="nav-item"><a href="terms-conditions.html" class="text-decoration-none text-dark-emphasis">Terms & Conditions Order and Pay by Mobile</a></li>
+            </ul>
+            <a href="index.html"><img src="imagens/sb-historias-logo.svg" alt="Starbucks Stories Logo"
+                    class="footer-img-logo ms-3 mt-3"></a>
+        </div>
+        <hr class="m-lg-auto">
+        <div class="container-fluid">
+            <div class="social-media d-flex justify-content-center">
+                <i class="bi bi-spotify"></i>
+                <i class="bi bi-facebook"></i>
+                <i class="bi bi-linkedin"></i>
+                <i class="bi bi-instagram"></i>
+                <i class="bi bi-youtube"></i>
+                <i class="bi bi-twitter-x"></i>
+            </div>
+            <ul class="nav flex-column mt-4 d-md-none">
+                <li class="nav-item"><a href="#" class="nav-link text-dark">Privacy policy</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-dark">Product exchange policy</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-dark">Terms of use</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-dark">Cookie policy</a></li>
+            </ul>
+            <div class="politicas ps-2 p-lg-0 d-none d-md-inline-block">
+                <span>Privacy policy</span>
+                <span>Product exchange policy</span>
+                <span>Terms of use</span>
+                <span>Cookie policy</span>
+            </div>
+            <p class="text-dark-emphasis text-copyright">© 2025 Starbucks Coffee Company. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Sample store data
+        const sampleStores = [
+            {
+                id: 1,
+                name: "Starbucks - Downtown Plaza",
+                address: "123 Main Street, City Center, NY 10001",
+                phone: "(555) 123-4567",
+                distance: "0.3 miles",
+                hours: "Mon-Fri: 5:30 AM - 10:00 PM, Sat-Sun: 6:00 AM - 11:00 PM",
+                amenities: ["Drive-thru", "WiFi", "Mobile Order", "Wheelchair Accessible"],
+                lat: 40.7128,
+                lng: -74.0060
+            },
+            {
+                id: 2,
+                name: "Starbucks - University Campus",
+                address: "456 College Ave, University District, NY 10002",
+                phone: "(555) 234-5678",
+                distance: "0.7 miles",
+                hours: "Mon-Sun: 6:00 AM - 9:00 PM",
+                amenities: ["WiFi", "Mobile Order", "Outdoor Seating", "Parking"],
+                lat: 40.7180,
+                lng: -74.0020
+            },
+            {
+                id: 3,
+                name: "Starbucks - Shopping Center",
+                address: "789 Mall Boulevard, Shopping District, NY 10003",
+                phone: "(555) 345-6789",
+                distance: "1.2 miles",
+                hours: "Mon-Sat: 7:00 AM - 10:00 PM, Sun: 8:00 AM - 9:00 PM",
+                amenities: ["Drive-thru", "WiFi", "Mobile Order", "Parking", "Wheelchair Accessible"],
+                lat: 40.7200,
+                lng: -74.0100
+            },
+            {
+                id: 4,
+                name: "Starbucks - Airport Terminal",
+                address: "Terminal 2, JFK Airport, Queens, NY 11430",
+                phone: "(555) 456-7890",
+                distance: "2.5 miles",
+                hours: "Mon-Sun: 4:30 AM - 11:30 PM",
+                amenities: ["WiFi", "Mobile Order", "Wheelchair Accessible"],
+                lat: 40.6892,
+                lng: -73.7781
+            },
+            {
+                id: 5,
+                name: "Starbucks - Riverside Park",
+                address: "321 Park Avenue, Riverside, NY 10004",
+                phone: "(555) 567-8901",
+                distance: "1.8 miles",
+                hours: "Mon-Sun: 6:30 AM - 8:00 PM",
+                amenities: ["WiFi", "Mobile Order", "Outdoor Seating", "Parking"],
+                lat: 40.7050,
+                lng: -74.0150
+            }
+        ];
+
+        let map;
+        let markers = [];
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeMap();
+            displayStores(sampleStores);
+            addMarkersToMap(sampleStores);
+        });
+
+        function initializeMap() {
+            // Initialize map centered on New York City
+            map = L.map('storeMap').setView([40.7128, -74.0060], 13);
+            
+            // Add tile layer
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+        }
+
+        function displayStores(stores) {
+            const storeList = document.getElementById('storeList');
+            storeList.innerHTML = '';
+
+            stores.forEach(store => {
+                const storeCard = createStoreCard(store);
+                storeList.appendChild(storeCard);
+            });
+
+            document.getElementById('storeCount').textContent = `Showing ${stores.length} stores`;
+        }
+
+        function createStoreCard(store) {
+            const storeCard = document.createElement('div');
+            storeCard.className = 'store-card card mb-3 shadow-sm';
+            
+            const amenityBadges = store.amenities.map(amenity => 
+                `<span class="badge bg-success me-1 mb-1">${amenity}</span>`
+            ).join('');
+
+            storeCard.innerHTML = `
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <h6 class="card-title text-color mb-0">${store.name}</h6>
+                        <span class="text-success fw-bold small">${store.distance}</span>
+                    </div>
+                    <p class="card-text text-muted small mb-2">
+                        <i class="bi bi-geo-alt me-1"></i>${store.address}
+                    </p>
+                    <p class="card-text text-muted small mb-2">
+                        <i class="bi bi-telephone me-1"></i>${store.phone}
+                    </p>
+                    <p class="card-text text-muted small mb-3">
+                        <i class="bi bi-clock me-1"></i>${store.hours}
+                    </p>
+                    <div class="amenities mb-3">
+                        ${amenityBadges}
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-success btn-sm rounded-pill flex-grow-1" onclick="getDirections(${store.lat}, ${store.lng})">
+                            <i class="bi bi-signpost me-1"></i>Directions
+                        </button>
+                        <button class="btn btn-outline-success btn-sm rounded-pill" onclick="callStore('${store.phone}')">
+                            <i class="bi bi-telephone me-1"></i>Call
+                        </button>
+                        <button class="btn btn-outline-success btn-sm rounded-pill" onclick="focusOnStore(${store.lat}, ${store.lng})">
+                            <i class="bi bi-geo me-1"></i>View on map
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            return storeCard;
+        }
+
+        function addMarkersToMap(stores) {
+            // Clear existing markers
+            markers.forEach(marker => map.removeLayer(marker));
+            markers = [];
+
+            // Add new markers
+            stores.forEach(store => {
+                const marker = L.marker([store.lat, store.lng]).addTo(map);
+                
+                const popupContent = `
+                    <div class="store-popup">
+                        <h6 class="mb-2">${store.name}</h6>
+                        <p class="small mb-1">${store.address}</p>
+                        <p class="small mb-2">${store.phone}</p>
+                        <div class="d-flex gap-1">
+                            <button class="btn btn-success btn-sm" onclick="getDirections(${store.lat}, ${store.lng})">Directions</button>
+                            <button class="btn btn-outline-success btn-sm" onclick="callStore('${store.phone}')">Call</button>
+                        </div>
+                    </div>
+                `;
+                
+                marker.bindPopup(popupContent);
+                markers.push(marker);
+            });
+        }
+
+        function searchStores() {
+            const location = document.getElementById('locationSearch').value;
+            const radius = document.getElementById('radiusSelect').value;
+            
+            if (!location.trim()) {
+                alert('Please enter a location to search for stores.');
+                return;
+            }
+
+            // Simulate search with sample data
+            alert(`Searching for stores within ${radius} miles of "${location}"`);
+            displayStores(sampleStores);
+            addMarkersToMap(sampleStores);
+        }
+
+        function useCurrentLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        const lat = position.coords.latitude;
+                        const lng = position.coords.longitude;
+                        
+                        // Center map on user's location
+                        map.setView([lat, lng], 15);
+                        
+                        // Add marker for user's location
+                        L.marker([lat, lng])
+                            .addTo(map)
+                            .bindPopup("Your current location")
+                            .openPopup();
+                        
+                        alert('Found your location! Searching for nearby stores...');
+                        displayStores(sampleStores);
+                        addMarkersToMap(sampleStores);
+                    },
+                    function(error) {
+                        alert('Unable to retrieve your location. Please enter your location manually.');
+                    }
+                );
+            } else {
+                alert('Geolocation is not supported by this browser.');
+            }
+        }
+
+        function getDirections(lat, lng) {
+            const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+            window.open(directionsUrl, '_blank');
+        }
+
+        function callStore(phone) {
+            window.location.href = `tel:${phone}`;
+        }
+
+        function focusOnStore(lat, lng) {
+            map.setView([lat, lng], 16);
+            
+            // Find and open the popup for this store
+            markers.forEach(marker => {
+                if (marker.getLatLng().lat === lat && marker.getLatLng().lng === lng) {
+                    marker.openPopup();
+                }
+            });
+        }
+
+        function loadMoreStores() {
+            alert('Loading more stores... (This would fetch additional stores from the API)');
+        }
+    </script>
+
+    <style>
+        .store-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .store-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+        }
+
+        .amenities .badge {
+            font-size: 0.7rem;
+        }
+
+        .map-container {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .search-container {
+            border: 1px solid #e0e0e0;
+        }
+
+        .filter-container {
+            border: 1px solid #e0e0e0;
+        }
+
+        .store-list {
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .store-popup h6 {
+            color: #006241;
+            margin-bottom: 8px;
+        }
+
+        .leaflet-popup-content {
+            margin: 8px 12px;
+        }
+
+        @media (max-width: 768px) {
+            #storeMap {
+                height: 400px !important;
+            }
+            
+            .store-list {
+                max-height: none;
+            }
+        }
+    </style>
+</body>
+
+</html>
