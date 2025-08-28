@@ -941,3 +941,380 @@ a, button, .btn {
         margin-bottom: 1rem;
     }
 }
+
+/* Additional Page Styles */
+
+/* About Us Page */
+.timeline-card {
+    background: white;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.timeline-card:hover {
+    border-color: #0F8953;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(15, 137, 83, 0.15);
+}
+
+.year-badge {
+    background: linear-gradient(135deg, #0F8953 0%, #00754A 100%);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-family: 'Sodo-Sans Bold';
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.value-card {
+    background: white;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.value-card:hover {
+    border-color: #0F8953;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(15, 137, 83, 0.15);
+}
+
+.leader-card {
+    background: white;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.leader-card:hover {
+    border-color: #0F8953;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(15, 137, 83, 0.15);
+}
+
+.global-stat {
+    transition: all 0.3s ease;
+}
+
+.global-stat:hover {
+    transform: translateY(-5px);
+}
+
+/* Our Company Page */
+.company-hero {
+    background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+    color: white;
+    border-radius: 0 0 30px 30px;
+}
+
+.business-card {
+    background: white;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.business-card:hover {
+    border-color: #1E3A8A;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(30, 58, 138, 0.15);
+}
+
+.governance-card {
+    background: white;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.governance-card:hover {
+    border-color: #1E3A8A;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(30, 58, 138, 0.15);
+}
+
+.financial-stat {
+    transition: all 0.3s ease;
+}
+
+.financial-stat:hover {
+    transform: translateY(-5px);
+}
+
+.investor-card {
+    background: white;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.investor-card:hover {
+    border-color: #1E3A8A;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(30, 58, 138, 0.15);
+}
+
+/* Customer Service Page */
+.service-hero {
+    background: linear-gradient(135deg, #7C3AED 0%, #A855F7 100%);
+    color: white;
+    border-radius: 0 0 30px 30px;
+}
+
+.help-category {
+    background: white;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.help-category:hover {
+    border-color: #7C3AED;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.15);
+}
+
+.contact-method {
+    background: white;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.contact-method:hover {
+    border-color: #7C3AED;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.15);
+}
+
+/* Privacy Page */
+.privacy-hero {
+    background: linear-gradient(135deg, #DC2626 0%, #EF4444 100%);
+    color: white;
+    border-radius: 0 0 30px 30px;
+}
+
+.security-feature {
+    background: white;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.security-feature:hover {
+    border-color: #DC2626;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(220, 38, 38, 0.15);
+}
+
+.rights-card {
+    transition: all 0.3s ease;
+}
+
+.rights-card:hover {
+    border-color: #DC2626 !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(220, 38, 38, 0.15);
+}
+
+.compliance-item {
+    background: white;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border: 2px solid #E5E7EB;
+}
+
+.compliance-item:hover {
+    border-color: #DC2626;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(220, 38, 38, 0.15);
+}
+
+/* Ethics Page */
+.ethics-hero {
+    background: linear-gradient(135deg, #059669 0%, #10B981 100%);
+    color: white;
+    border-radius: 0 0 30px 30px;
+}
+
+.ethics-pillar {
+    background: white;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.ethics-pillar:hover {
+    border-color: #059669;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(5, 150, 105, 0.15);
+}
+
+.principle-card {
+    background: white;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.principle-card:hover {
+    border-color: #059669;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(5, 150, 105, 0.15);
+}
+
+.reporting-method {
+    background: white;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.reporting-method:hover {
+    border-color: #059669;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(5, 150, 105, 0.15);
+}
+
+.training-resource {
+    background: white;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.training-resource:hover {
+    border-color: #059669;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(5, 150, 105, 0.15);
+}
+
+/* Careers Page */
+.careers-hero {
+    background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%);
+    color: white;
+    border-radius: 0 0 30px 30px;
+}
+
+.benefit-card {
+    background: white;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.benefit-card:hover {
+    border-color: #F59E0B;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(245, 158, 11, 0.15);
+}
+
+.career-path {
+    background: white;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.career-path:hover {
+    border-color: #F59E0B;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(245, 158, 11, 0.15);
+}
+
+.benefit-detail {
+    background: white;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.benefit-detail:hover {
+    border-color: #F59E0B;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(245, 158, 11, 0.15);
+}
+
+.application-step {
+    transition: all 0.3s ease;
+}
+
+.application-step:hover {
+    transform: translateY(-5px);
+}
+
+/* Terms & Conditions Page */
+.terms-hero {
+    background: linear-gradient(135deg, #4B5563 0%, #6B7280 100%);
+    color: white;
+    border-radius: 0 0 30px 30px;
+}
+
+.terms-nav .nav-pills .nav-link {
+    background: transparent;
+    border: 2px solid #4B5563;
+    color: #4B5563;
+    margin: 0 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.terms-nav .nav-pills .nav-link.active,
+.terms-nav .nav-pills .nav-link:hover {
+    background: #4B5563;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(75, 85, 99, 0.3);
+}
+
+.terms-content h3 {
+    color: #4B5563;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Download App Page */
+.app-hero {
+    background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%);
+    color: white;
+    border-radius: 0 0 30px 30px;
+}
+
+.app-feature {
+    background: white;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.app-feature:hover {
+    border-color: #8B5CF6;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
+}
+
+.screenshot-card {
+    background: white;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.screenshot-card:hover {
+    border-color: #8B5CF6;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
+}
+
+.getting-started-step {
+    transition: all 0.3s ease;
+}
+
+.getting-started-step:hover {
+    transform: translateY(-5px);
+}
+
+.app-stat {
+    transition: all 0.3s ease;
+}
+
+.app-stat:hover {
+    transform: translateY(-5px);
+}
+
+.app-download-buttons .btn {
+    transition: all 0.3s ease;
+}
+
+.app-download-buttons .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
