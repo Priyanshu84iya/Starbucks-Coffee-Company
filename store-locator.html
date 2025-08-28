@@ -127,10 +127,10 @@
                             <div class="col-md-4">
                                 <label for="radiusSelect" class="form-label fw-bold text-color">Search radius</label>
                                 <select class="form-select" id="radiusSelect">
-                                    <option value="5">5 miles</option>
-                                    <option value="10" selected>10 miles</option>
-                                    <option value="25">25 miles</option>
-                                    <option value="50">50 miles</option>
+                                    <option value="5">5 km</option>
+                                    <option value="10" selected>10 km</option>
+                                    <option value="25">25 km</option>
+                                    <option value="50">50 km</option>
                                 </select>
                             </div>
                             <div class="col-12">
@@ -163,13 +163,13 @@
                             <div class="col-md-2 col-6">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="wifi">
-                                    <label class="form-check-label small" for="wifi">Free WiFi</label>
+                                    <label class="form-check-label small" for="wifi">WiFi</label>
                                 </div>
                             </div>
                             <div class="col-md-2 col-6">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="mobileOrder">
-                                    <label class="form-check-label small" for="mobileOrder">Mobile Order</label>
+                                    <input class="form-check-input" type="checkbox" id="dineIn">
+                                    <label class="form-check-label small" for="dineIn">Dine-in</label>
                                 </div>
                             </div>
                             <div class="col-md-2 col-6">
@@ -204,7 +204,7 @@
                     <div class="store-results">
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <h5 class="text-color mb-0">Nearby Stores</h5>
-                            <span class="text-muted small" id="storeCount">Showing 10 of 25 stores</span>
+                            <span class="text-muted small" id="storeCount">Showing 10 of 15 stores</span>
                         </div>
                         
                         <div id="storeList" class="store-list">
@@ -369,62 +369,127 @@
     </footer>
 
     <script>
-        // Sample store data
+        // Store data for Delhi NCR locations
         const sampleStores = [
             {
                 id: 1,
-                name: "Starbucks - Downtown Plaza",
-                address: "123 Main Street, City Center, NY 10001",
-                phone: "(555) 123-4567",
-                distance: "0.3 miles",
-                hours: "Mon-Fri: 5:30 AM - 10:00 PM, Sat-Sun: 6:00 AM - 11:00 PM",
-                amenities: ["Drive-thru", "WiFi", "Mobile Order", "Wheelchair Accessible"],
-                lat: 40.7128,
-                lng: -74.0060
+                name: "Starbucks - Grand Street",
+                address: "Grand Street, Delhi NCR, India",
+                phone: "+91 11 4567-8901",
+                distance: "3.34 kms",
+                driveTime: "7 mins drive",
+                hours: "Currently Closed - Mon-Sun: 7:00 AM - 11:00 PM",
+                amenities: ["Dine-in", "WiFi", "Drive-thru"],
+                lat: 28.5355,
+                lng: 77.3910
             },
             {
                 id: 2,
-                name: "Starbucks - University Campus",
-                address: "456 College Ave, University District, NY 10002",
-                phone: "(555) 234-5678",
-                distance: "0.7 miles",
-                hours: "Mon-Sun: 6:00 AM - 9:00 PM",
-                amenities: ["WiFi", "Mobile Order", "Outdoor Seating", "Parking"],
-                lat: 40.7180,
-                lng: -74.0020
+                name: "Starbucks - Skymark One Delhi NCR",
+                address: "Skymark One, Sector 98, Gurgaon, Delhi NCR, India",
+                phone: "+91 124 4567-8902",
+                distance: "5.60 kms",
+                driveTime: "13 mins drive",
+                hours: "Currently Closed - Mon-Sun: 8:00 AM - 10:00 PM",
+                amenities: ["Dine-in", "WiFi", "Drive-thru"],
+                lat: 28.4595,
+                lng: 77.0266
             },
             {
                 id: 3,
-                name: "Starbucks - Shopping Center",
-                address: "789 Mall Boulevard, Shopping District, NY 10003",
-                phone: "(555) 345-6789",
-                distance: "1.2 miles",
-                hours: "Mon-Sat: 7:00 AM - 10:00 PM, Sun: 8:00 AM - 9:00 PM",
-                amenities: ["Drive-thru", "WiFi", "Mobile Order", "Parking", "Wheelchair Accessible"],
-                lat: 40.7200,
-                lng: -74.0100
+                name: "Starbucks - Advant Noida",
+                address: "Advant Building, Sector 142, Noida, Delhi NCR, India",
+                phone: "+91 120 4567-8903",
+                distance: "5.61 kms",
+                driveTime: "14 mins drive",
+                hours: "Currently Closed - Mon-Fri: 7:30 AM - 9:30 PM, Sat-Sun: 8:00 AM - 10:00 PM",
+                amenities: ["Dine-in", "Drive-thru"],
+                lat: 28.4956,
+                lng: 77.4086
             },
             {
                 id: 4,
-                name: "Starbucks - Airport Terminal",
-                address: "Terminal 2, JFK Airport, Queens, NY 11430",
-                phone: "(555) 456-7890",
-                distance: "2.5 miles",
-                hours: "Mon-Sun: 4:30 AM - 11:30 PM",
-                amenities: ["WiFi", "Mobile Order", "Wheelchair Accessible"],
-                lat: 40.6892,
-                lng: -73.7781
+                name: "Starbucks - Candor Techspace Noida",
+                address: "Candor Techspace, Sector 135, Noida, Delhi NCR, India",
+                phone: "+91 120 4567-8904",
+                distance: "5.99 kms",
+                driveTime: "15 mins drive",
+                hours: "Currently Closed - Mon-Fri: 7:00 AM - 8:00 PM, Sat-Sun: 8:00 AM - 9:00 PM",
+                amenities: ["Dine-in", "WiFi", "Drive-thru"],
+                lat: 28.4817,
+                lng: 77.4126
             },
             {
                 id: 5,
-                name: "Starbucks - Riverside Park",
-                address: "321 Park Avenue, Riverside, NY 10004",
-                phone: "(555) 567-8901",
-                distance: "1.8 miles",
-                hours: "Mon-Sun: 6:30 AM - 8:00 PM",
-                amenities: ["WiFi", "Mobile Order", "Outdoor Seating", "Parking"],
-                lat: 40.7050,
-                lng: -74.0150
+                name: "Starbucks - R Cube Noida",
+                address: "R Cube Mall, Sector 18, Noida, Delhi NCR, India",
+                phone: "+91 120 4567-8905",
+                distance: "6.64 kms",
+                driveTime: "16 mins drive",
+                hours: "Currently Closed - Mon-Sun: 10:00 AM - 10:00 PM",
+                amenities: ["Dine-in", "Drive-thru"],
+                lat: 28.5706,
+                lng: 77.3272
+            },
+            {
+                id: 6,
+                name: "Starbucks - Spectrum",
+                address: "Spectrum Mall, Sector 75, Noida, Delhi NCR, India",
+                phone: "+91 120 4567-8906",
+                distance: "7.74 kms",
+                driveTime: "17 mins drive",
+                hours: "Currently Closed - Mon-Sun: 10:00 AM - 11:00 PM",
+                amenities: ["Dine-in", "Drive-thru"],
+                lat: 28.5706,
+                lng: 77.3570
+            },
+            {
+                id: 7,
+                name: "Starbucks - Add India Tower",
+                address: "Add India Tower, Sector 16A, Noida, Delhi NCR, India",
+                phone: "+91 120 4567-8907",
+                distance: "9.71 kms",
+                driveTime: "20 mins drive",
+                hours: "Currently Closed - Mon-Fri: 7:00 AM - 9:00 PM, Sat-Sun: 8:00 AM - 10:00 PM",
+                amenities: ["Dine-in", "WiFi", "Drive-thru"],
+                lat: 28.5795,
+                lng: 77.3162
+            },
+            {
+                id: 8,
+                name: "Starbucks - Sector 18 Noida",
+                address: "City Centre Mall, Sector 18, Noida, Delhi NCR, India",
+                phone: "+91 120 4567-8908",
+                distance: "10.46 kms",
+                driveTime: "23 mins drive",
+                hours: "Currently Closed - Mon-Sun: 10:00 AM - 11:00 PM",
+                amenities: ["Dine-in", "WiFi", "Drive-thru"],
+                lat: 28.5706,
+                lng: 77.3272
+            },
+            {
+                id: 9,
+                name: "Starbucks - Gardens Galleria",
+                address: "Gardens Galleria Mall, Sector 38A, Noida, Delhi NCR, India",
+                phone: "+91 120 4567-8909",
+                distance: "11.46 kms",
+                driveTime: "28 mins drive",
+                hours: "Currently Closed - Mon-Sun: 10:00 AM - 10:00 PM",
+                amenities: ["Dine-in", "WiFi", "Drive-thru"],
+                lat: 28.5562,
+                lng: 77.3319
+            },
+            {
+                id: 10,
+                name: "Starbucks - DLF Mall of India",
+                address: "DLF Mall of India, Sector 18, Noida, Delhi NCR, India",
+                phone: "+91 120 4567-8910",
+                distance: "12.38 kms",
+                driveTime: "20 mins drive",
+                hours: "Currently Closed - Mon-Sun: 10:00 AM - 11:00 PM",
+                amenities: ["Dine-in", "WiFi", "Drive-thru"],
+                lat: 28.5706,
+                lng: 77.3272
             }
         ];
 
@@ -439,8 +504,8 @@
         });
 
         function initializeMap() {
-            // Initialize map centered on New York City
-            map = L.map('storeMap').setView([40.7128, -74.0060], 13);
+            // Initialize map centered on Delhi NCR
+            map = L.map('storeMap').setView([28.5355, 77.3910], 11);
             
             // Add tile layer
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -472,7 +537,10 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-start mb-2">
                         <h6 class="card-title text-color mb-0">${store.name}</h6>
-                        <span class="text-success fw-bold small">${store.distance}</span>
+                        <div class="text-end">
+                            <span class="text-success fw-bold small d-block">${store.distance} away</span>
+                            <span class="text-muted small">${store.driveTime}</span>
+                        </div>
                     </div>
                     <p class="card-text text-muted small mb-2">
                         <i class="bi bi-geo-alt me-1"></i>${store.address}
@@ -539,7 +607,7 @@
             }
 
             // Simulate search with sample data
-            alert(`Searching for stores within ${radius} miles of "${location}"`);
+            alert(`Searching for stores within ${radius} km of "${location}"`);
             displayStores(sampleStores);
             addMarkersToMap(sampleStores);
         }
