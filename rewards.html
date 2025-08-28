@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Starbucks Rewards - Earn stars, get free drinks, and enjoy exclusive benefits with our loyalty program.">
+    <title>Rewards - Starbucks Coffee Company</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="imagens/favicon-16x16.png" type="image/x-icon">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Crete+Round:ital@0;1&family=Lato:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <!-- Js Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"
+        defer></script>
+    <!-- Bootstrap Icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- Style Starbucks -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header_starbucks mb-3">
+        <nav class="navbar navbar-expand-md pt-3 ps-1">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html"><img src="imagens/starbucks-nav-logo.svg" alt="Logo Starbucks"></a>
+                <button class="navbar-toggler border-0 button" type="button" data-bs-target="#offcanvas"
+                    aria-expanded="false" aria-label="Toggle navigation" data-bs-toggle="offcanvas"
+                    aria-controls="offcanvasExample">
+                    <i class="bi bi-list"></i>
+                </button>
+                <div class="collapse navbar-collapse justify-content-evenly" id="navbarSupportedContent">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a href="menu.html" class="nav-link text-black text-uppercase">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="rewards.html" class="nav-link link text-black text-uppercase active">Rewards</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="our-coffee.html" class="nav-link text-black text-uppercase">Our Coffee</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="social-impact.html" class="nav-link text-black text-uppercase">Social Impact</a>
+                        </li>
+                    </ul>
+
+                    <div class="container-fluid w-auto gap-3 m-0 p-0">
+                        <img src="imagens/sb-historias-logo.svg" alt="Starbucks Stories Logo"
+                            class="logotipo-history">
+                        <a href="#" class="text-decoration-none text-dark fw-bolder">
+                            <i class="bi bi-geo-alt-fill text-dark icon me-2 icon"></i>
+                            <span class="text-icon">Find a store</span>
+                        </a>
+                        <button class="btn btn-light rounded-pill border-black bg-white py-1 px-3">Sign in</button>
+                        <button class="btn btn-dark rounded-pill border-black bg-dark px-3">Join now</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header p-0">
+                <ul class="nav flex-column w-100">
+                    <li class="nav-item w-100 ps-3 pb-2 pb-1 pt-1">
+                        <a href="menu.html" class="nav-link text-dark">Menu</a>
+                    </li>
+                    <li class="nav-item w-100 ps-3 pb-2 pb-1 pt-1">
+                        <a href="rewards.html" class="nav-link text-dark">Rewards</a>
+                    </li>
+                    <li class="nav-item w-100 ps-3 pb-2 pb-1 pt-1">
+                        <a href="our-coffee.html" class="nav-link text-dark">Our Coffee</a>
+                    </li>
+                    <li class="nav-item w-100 ps-3 pb-2 pb-1 pt-1">
+                        <a href="social-impact.html" class="nav-link text-dark">Social Impact</a>
+                    </li>
+                </ul>
+            </div>
+            <hr class="mt-2">
+            <div class="offcanvas-body d-flex flex-column align-items-center">
+                <a href="index.html"><img src="imagens/sb-historias-logo.svg" alt="Starbucks Stories Logo"
+                        width="130px"></a>
+                <button
+                    class="btn btn-light text-dark rounded-pill w-100 border-black bg-white py-2 mt-4 mb-2">Sign in</button>
+                <button class="btn btn-dark rounded-pill w-100 border-black bg-dark py-2">Join now</button>
+                <a href="#" class="text-decoration-none text-dark fw-bolder mt-4 align-self-start ms-3">
+                    <i class="bi bi-geo-alt-fill text-dark icon mt-5 me-2 icon"></i>
+                    <span class="text-icon">Find a store</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container-fluid starbucks_main">
+        <!-- Hero Section -->
+        <section class="hero-section primary-color text-center py-5 mb-5">
+            <div class="container">
+                <h1 class="display-4 fw-bold text-color mb-3">Starbucks® Rewards</h1>
+                <p class="lead text-muted mb-4">Free coffee is a tap, scan, or swipe away</p>
+                <button class="btn btn-success btn-lg rounded-pill px-4">Join in the app</button>
+            </div>
+        </section>
+
+        <!-- How it Works -->
+        <section class="container mb-5">
+            <div class="row text-center">
+                <div class="col-12">
+                    <h2 class="text-color mb-5">Getting started is easy</h2>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="step-card p-4">
+                        <div class="step-number bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <span class="fw-bold">1</span>
+                        </div>
+                        <h4 class="text-color">Download the Starbucks app</h4>
+                        <p class="text-muted">Join Starbucks Rewards to earn Stars and unlock free drinks, food, and more.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="step-card p-4">
+                        <div class="step-number bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <span class="fw-bold">2</span>
+                        </div>
+                        <h4 class="text-color">Order and pay how you'd like</h4>
+                        <p class="text-muted">Use cash, credit/debit card or save some time and pay right through the app.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="step-card p-4">
+                        <div class="step-number bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <span class="fw-bold">3</span>
+                        </div>
+                        <h4 class="text-color">Earn Stars, get Rewards</h4>
+                        <p class="text-muted">As you earn Stars, you can redeem them for Rewards—like free food, drinks, and more.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rewards Tiers -->
+        <section class="container mb-5">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="text-color">Get your favorites for free</h2>
+                    <p class="text-muted">Collect Stars to redeem free food and drinks</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="reward-tier card border-0 shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <div class="star-count bg-warning text-dark rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                                <span class="fw-bold fs-5">25</span>
+                            </div>
+                            <h5 class="text-color">Customize your drink</h5>
+                            <p class="text-muted small">Make your drink just the way you like it with an extra shot, dairy substitute or extra hot.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="reward-tier card border-0 shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <div class="star-count bg-warning text-dark rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                                <span class="fw-bold fs-5">50</span>
+                            </div>
+                            <h5 class="text-color">Brewed hot coffee</h5>
+                            <p class="text-muted small">Brighten your day with a free brewed hot coffee (excluding premium blends).</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="reward-tier card border-0 shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <div class="star-count bg-warning text-dark rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                                <span class="fw-bold fs-5">150</span>
+                            </div>
+                            <h5 class="text-color">Handcrafted drink</h5>
+                            <p class="text-muted small">Treat yourself to any handcrafted beverage—hot, iced or blended.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="reward-tier card border-0 shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <div class="star-count bg-warning text-dark rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                                <span class="fw-bold fs-5">200</span>
+                            </div>
+                            <h5 class="text-color">Food & more</h5>
+                            <p class="text-muted small">Get food, packaged coffee and select merchandise with your Stars.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="primary-color py-5 mb-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mb-5">
+                        <h2 class="text-color">Endless Extras</h2>
+                        <p class="text-muted">Joining Starbucks Rewards means unlocking access to exclusive benefits</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="benefit-card text-center p-4">
+                            <i class="bi bi-gift text-success fs-1 mb-3"></i>
+                            <h5 class="text-color">Free birthday drink</h5>
+                            <p class="text-muted">Celebrate your special day with a free drink of your choice.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="benefit-card text-center p-4">
+                            <i class="bi bi-phone text-success fs-1 mb-3"></i>
+                            <h5 class="text-color">Order ahead</h5>
+                            <p class="text-muted">Skip the line and order ahead through the Starbucks app.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="benefit-card text-center p-4">
+                            <i class="bi bi-star text-success fs-1 mb-3"></i>
+                            <h5 class="text-color">Double Star Days</h5>
+                            <p class="text-muted">Earn twice the Stars on select items and days throughout the year.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Star Earning -->
+        <section class="container mb-5">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="text-color">Cash or card, you earn Stars</h2>
+                    <p class="text-muted">No matter how you pay, you can earn Stars with your morning coffee</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="earning-method card border-0 shadow-sm p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-credit-card text-success fs-2 me-3"></i>
+                            <div>
+                                <h5 class="text-color mb-1">1★ per $1</h5>
+                                <p class="text-muted mb-0">Pay as you go</p>
+                            </div>
+                        </div>
+                        <p class="text-muted">Add funds to your Starbucks Card in the app and earn 1 Star per $1 spent when you pay with your registered Starbucks Card.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="earning-method card border-0 shadow-sm p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-cash text-success fs-2 me-3"></i>
+                            <div>
+                                <h5 class="text-color mb-1">2★ per $1</h5>
+                                <p class="text-muted mb-0">Link a payment method</p>
+                            </div>
+                        </div>
+                        <p class="text-muted">Link a credit/debit card or PayPal and earn 2 Stars per $1 spent when you pay through the app.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="text-center py-5 primary-color">
+            <div class="container">
+                <h2 class="text-color mb-3">Questions?</h2>
+                <p class="text-muted mb-4">We want to help in any way we can. You can ask your barista anytime or we've answered the most commonly asked questions right here.</p>
+                <button class="btn btn-outline-success btn-lg rounded-pill px-4">Learn more</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-starkbucks">
+        <div class="accordion d-md-none footer-accordion" id="accordionExample">
+            <div class="accordion-item border-0">
+                <h2 class="accordion-header">
+                    <button class="accordion-button text-dark" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        About us
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="nav flex-column gap-4">
+                            <li class="nav-item"><a href="#" class="text-decoration-none text-dark-emphasis">Our
+                                    company</a></li>
+                            <li class="nav-item"><a href="#" class="text-decoration-none text-dark-emphasis">Our
+                                    coffee</a></li>
+                            <li class="nav-item"><a href="#" class="text-decoration-none text-dark-emphasis">Customer
+                                    service</a></li>
+                            <li class="nav-item"><a href="#" class="text-decoration-none text-dark-emphasis">Compliance
+                                    & Privacy</a></li>
+                            <li class="nav-item"><a href="#" class="text-decoration-none text-dark-emphasis">Code of
+                                    Ethics and Conduct</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item border-0">
+                <h2 class="accordion-header">
+                    <button class="accordion-button text-dark" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+                        Careers
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="nav flex-column gap-4">
+                            <li class="nav-item"><a href="#" class="text-decoration-none text-dark-emphasis">Career
+                                    center</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item border-0">
+                <h2 class="accordion-header">
+                    <button class="accordion-button text-dark" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseOne">
+                        Social Impact
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="nav flex-column gap-4">
+                            <li class="nav-item"><a href="#"
+                                    class="text-decoration-none text-dark-emphasis">Community</a></li>
+                            <li class="nav-item"><a href="#" class="text-decoration-none text-dark-emphasis">Environment</a></li>
+                            <li class="nav-item"><a href="#"
+                                    class="text-decoration-none text-dark-emphasis">Ethical sourcing</a></li>
+                            <li class="nav-item"><a href="#"
+                                    class="text-decoration-none text-dark-emphasis">Stories</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item border-0">
+                <h2 class="accordion-header">
+                    <button class="accordion-button text-dark" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseOne">
+                        Starbucks Rewards
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="nav flex-column gap-4">
+                            <li class="nav-item"><a href="#" class="text-decoration-none text-dark-emphasis">Download the
+                                    app</a></li>
+                            <li class="nav-item"><a href="#" class="text-decoration-none text-dark-emphasis">Terms &
+                                    Conditions Starbucks Card</a></li>
+                            <li class="nav-item"><a href="#" class="text-decoration-none text-dark-emphasis">Terms &
+                                    Conditions Starbucks Rewards</a></li>
+                            <li class="nav-item"><a href="#" class="text-decoration-none text-dark-emphasis">Terms &
+                                    Conditions Gift Card</a></li>
+                            <li class="nav-item"><a href="#" class="text-decoration-none text-dark-emphasis">Code of
+                                    Ethics and Conduct</a></li>
+                            <li class="nav-item"><a href="#" class="text-decoration-none text-dark-emphasis">Terms &
+                                    Conditions Order and Pay by Mobile</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <a href="index.html"><img src="imagens/sb-historias-logo.svg" alt="Starbucks Stories Logo"
+                    class="footer-img-logo ms-3 mt-3"></a>
+        </div>
+
+        <div class="container-fluid d-none d-md-flex footer-links justify-content-between">
+            <ul class="nav flex-column gap-4">
+                <li class="nav-item">About us</li>
+                <li class="nav-item mt-2"><a href="#" class="text-decoration-none text-dark-emphasis">Our company</a>
+                </li>
+                <li class="nav-item"><a href="#" class="text-decoration-none text-dark-emphasis">Our coffee</a></li>
+                <li class="nav-item"><a href="#" class="text-decoration-none text-dark-emphasis">Customer
+                        service</a></li>
+                <li class="nav-item"><a href="#" class="text-decoration-none text-dark-emphasis">Compliance &
+                        Privacy</a></li>
+                <li class="nav-item"><a href="#" class="text-decoration-none text-dark-emphasis">Code of Ethics and
+                        Conduct</a></li>
+            </ul>
+
+            <ul class="nav flex-column gap-4">
+                <li class="nav-item nav-title">Careers</li>
+                <li class="nav-item mt-2"><a href="#" class="text-decoration-none text-dark-emphasis">Career
+                        center</a></li>
+            </ul>
+
+            <ul class="nav flex-column gap-4">
+                <li class="nav-item nav-title">Social Impact</li>
+                <li class="nav-item mt-2"><a href="#" class="text-decoration-none text-dark-emphasis">Community</a>
+                </li>
+                <li class="nav-item"><a href="#" class="text-decoration-none text-dark-emphasis">Environment</a></li>
+                <li class="nav-item"><a href="#" class="text-decoration-none text-dark-emphasis">Ethical sourcing</a>
+                </li>
+                <li class="nav-item"><a href="#" class="text-decoration-none text-dark-emphasis">Stories</a></li>
+            </ul>
+
+            <ul class="nav flex-column gap-4 mb-3">
+                <li class="nav-item nav-title">Starbucks Rewards</li>
+                <li class="nav-item mt-2"><a href="#" class="text-decoration-none text-dark-emphasis">Download the
+                        app</a></li>
+                <li class="nav-item"><a href="#" class="text-decoration-none text-dark-emphasis">Terms & Conditions
+                        Starbucks Card</a></li>
+                <li class="nav-item"><a href="#" class="text-decoration-none text-dark-emphasis">Terms & Conditions
+                        Starbucks Rewards</a></li>
+                <li class="nav-item"><a href="#" class="text-decoration-none text-dark-emphasis">Terms & Conditions
+                        Gift Card</a></li>
+                <li class="nav-item"><a href="#" class="text-decoration-none text-dark-emphasis">Code of Ethics and
+                        Conduct</a></li>
+                <li class="nav-item"><a href="#" class="text-decoration-none text-dark-emphasis">Terms & Conditions Order
+                        and Pay by Mobile</a></li>
+            </ul>
+            <a href="index.html"><img src="imagens/sb-historias-logo.svg" alt="Starbucks Stories Logo"
+                    class="footer-img-logo ms-3 mt-3"></a>
+        </div>
+        <hr class="m-lg-auto">
+        <div class="container-fluid">
+            <div class="social-media d-flex gap-3">
+                <i class="bi bi-spotify"></i>
+                <i class="bi bi-facebook"></i>
+                <i class="bi bi-linkedin"></i>
+                <i class="bi bi-instagram"></i>
+                <i class="bi bi-youtube"></i>
+                <i class="bi bi-twitter"></i>
+            </div>
+            <ul class="nav flex-column mt-4 d-md-none">
+                <li class="nav-item"><a href="#" class="nav-link text-dark">Privacy policy</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-dark">Product exchange policy</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-dark">Terms of use</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-dark">Cookie policy</a></li>
+            </ul>
+            <div class="politicas ps-2 p-lg-0 d-none d-md-inline-block">
+                <span>Privacy policy</span>
+                <span>Product exchange policy</span>
+                <span>Terms of use</span>
+                <span>Cookie policy</span>
+            </div>
+            <p class="text-dark-emphasis text-copyright">© 2025 Starbucks Coffee Company. All rights reserved.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>
