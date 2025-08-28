@@ -633,6 +633,16 @@ a, button, .btn {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
 }
 
+.menu-item .card-img-top {
+    transition: transform 0.3s ease;
+    height: 250px;
+    object-fit: cover;
+}
+
+.menu-item:hover .card-img-top {
+    transform: scale(1.05);
+}
+
 .menu-item .card-title {
     font-family: 'Sodo-Sans Bold';
     font-size: 1.1rem;
