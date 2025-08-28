@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="font/stylesheet.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="imagens/favicon-16x16.png">
+    <title>Sign In | Starbucks Coffee Company</title>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand" href="index.html">
+                <img src="imagens/starbucks-nav-logo.svg" alt="Starbucks" height="50">
+            </a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-4">
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold text-uppercase" href="menu.html">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold text-uppercase" href="rewards.html">Rewards</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold text-uppercase" href="#">Gift Cards</a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-dark rounded-pill px-3 py-1">
+                        <i class="bi bi-geo-alt me-1"></i>Find a store
+                    </button>
+                    <button class="btn btn-light rounded-pill border-black bg-white py-1 px-3">Sign in</button>
+                    <a href="join.html" class="btn btn-dark rounded-pill border-black bg-dark px-3">Join now</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sign In Hero Section -->
+    <section class="signin-hero py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-5 col-md-7">
+                    <div class="signin-card bg-white rounded-4 shadow-lg p-5">
+                        <div class="text-center mb-4">
+                            <img src="imagens/starbucks-nav-logo.svg" alt="Starbucks" height="60" class="mb-3">
+                            <h2 class="signin-title fw-bold text-dark mb-2">Sign in to your account</h2>
+                            <p class="text-muted">Welcome back! Please enter your details.</p>
+                        </div>
+
+                        <form class="signin-form">
+                            <div class="mb-3">
+                                <label for="email" class="form-label fw-semibold">Email address</label>
+                                <input type="email" class="form-control form-control-lg rounded-3 border-2" id="email" 
+                                       placeholder="Enter your email" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="password" class="form-label fw-semibold">Password</label>
+                                <div class="position-relative">
+                                    <input type="password" class="form-control form-control-lg rounded-3 border-2" 
+                                           id="password" placeholder="Enter your password" required>
+                                    <button type="button" class="btn btn-link position-absolute end-0 top-50 translate-middle-y pe-3 text-muted" 
+                                            onclick="togglePassword()">
+                                        <i class="bi bi-eye" id="passwordToggle"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="rememberMe">
+                                    <label class="form-check-label text-muted" for="rememberMe">
+                                        Remember me
+                                    </label>
+                                </div>
+                                <a href="#" class="text-decoration-none text-success fw-semibold">Forgot password?</a>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-success btn-lg w-100 rounded-pill mb-3 py-3 fw-bold">
+                                Sign In
+                            </button>
+                            
+                            <div class="text-center">
+                                <span class="text-muted">Don't have an account? </span>
+                                <a href="join.html" class="text-decoration-none text-success fw-semibold">Join now</a>
+                            </div>
+                        </form>
+
+                        <hr class="my-4">
+
+                        <div class="text-center">
+                            <p class="text-muted mb-3">Or continue with</p>
+                            <div class="d-grid gap-2">
+                                <button type="button" class="btn btn-outline-dark btn-lg rounded-pill py-2">
+                                    <i class="bi bi-google me-2"></i>Continue with Google
+                                </button>
+                                <button type="button" class="btn btn-outline-dark btn-lg rounded-pill py-2">
+                                    <i class="bi bi-apple me-2"></i>Continue with Apple
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="signin-benefits py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h3 class="fw-bold text-dark">Why sign in to Starbucks?</h3>
+                    <p class="text-muted">Unlock exclusive benefits and personalized experiences</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="benefit-card text-center p-4 h-100">
+                        <div class="benefit-icon mb-3">
+                            <i class="bi bi-star-fill text-warning fs-1"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Starbucks® Rewards</h5>
+                        <p class="text-muted">Earn Stars for free drinks and food. Get to know your drink with our personalized recommendations.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="benefit-card text-center p-4 h-100">
+                        <div class="benefit-icon mb-3">
+                            <i class="bi bi-phone text-success fs-1"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Mobile Order & Pay</h5>
+                        <p class="text-muted">Skip the line with the Starbucks app. Order ahead and pick up at your convenience.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="benefit-card text-center p-4 h-100">
+                        <div class="benefit-icon mb-3">
+                            <i class="bi bi-gift text-danger fs-1"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Exclusive Offers</h5>
+                        <p class="text-muted">Get special member pricing, early access to new products, and personalized offers just for you.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-light pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h6 class="fw-bold mb-3">About Us</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="our-company.html" class="text-decoration-none text-muted">Our Company</a></li>
+                        <li class="mb-2"><a href="our-coffee.html" class="text-decoration-none text-muted">Our Coffee</a></li>
+                        <li class="mb-2"><a href="customer-service.html" class="text-decoration-none text-muted">Customer Service</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h6 class="fw-bold mb-3">Careers</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="careers.html" class="text-decoration-none text-muted">Career Center</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="compliance-privacy.html" class="text-decoration-none text-muted">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="terms-conditions.html" class="text-decoration-none text-muted">Terms of Use</a></li>
+                        <li class="mb-2"><a href="code-of-ethics.html" class="text-decoration-none text-muted">Code of Ethics</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h6 class="fw-bold mb-3">Social Media</h6>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-muted fs-4"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-muted fs-4"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-muted fs-4"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-muted fs-4"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">&copy; 2025 Starbucks Coffee Company. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <img src="imagens/starbucks-nav-logo.svg" alt="Starbucks" height="40">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.getElementById('passwordToggle');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.className = 'bi bi-eye-slash';
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.className = 'bi bi-eye';
+            }
+        }
+
+        // Form submission handler
+        document.querySelector('.signin-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Basic form validation
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            if (email && password) {
+                // Simulate successful login
+                alert('Welcome back! Sign in successful.');
+                // In a real application, you would send this data to your backend
+                window.location.href = 'index.html';
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+    </script>
+</body>
+
+</html>

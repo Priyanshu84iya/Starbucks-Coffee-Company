@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="font/stylesheet.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="imagens/favicon-16x16.png">
+    <title>Join Now | Starbucks Coffee Company</title>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand" href="index.html">
+                <img src="imagens/starbucks-nav-logo.svg" alt="Starbucks" height="50">
+            </a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-4">
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold text-uppercase" href="menu.html">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold text-uppercase" href="rewards.html">Rewards</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold text-uppercase" href="#">Gift Cards</a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-dark rounded-pill px-3 py-1">
+                        <i class="bi bi-geo-alt me-1"></i>Find a store
+                    </button>
+                    <a href="signin.html" class="btn btn-light rounded-pill border-black bg-white py-1 px-3">Sign in</a>
+                    <button class="btn btn-dark rounded-pill border-black bg-dark px-3">Join now</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Join Us Hero Section -->
+    <section class="join-hero py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-8">
+                    <div class="join-card bg-white rounded-4 shadow-lg p-5">
+                        <div class="text-center mb-4">
+                            <img src="imagens/starbucks-nav-logo.svg" alt="Starbucks" height="60" class="mb-3">
+                            <h2 class="join-title fw-bold text-dark mb-2">Join Starbucks® Rewards</h2>
+                            <p class="text-muted">Create your account and start earning Stars for free drinks and food.</p>
+                        </div>
+
+                        <form class="join-form">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="firstName" class="form-label fw-semibold">First name *</label>
+                                    <input type="text" class="form-control form-control-lg rounded-3 border-2" 
+                                           id="firstName" placeholder="Enter your first name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="lastName" class="form-label fw-semibold">Last name *</label>
+                                    <input type="text" class="form-control form-control-lg rounded-3 border-2" 
+                                           id="lastName" placeholder="Enter your last name" required>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="email" class="form-label fw-semibold">Email address *</label>
+                                <input type="email" class="form-control form-control-lg rounded-3 border-2" 
+                                       id="email" placeholder="Enter your email" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="password" class="form-label fw-semibold">Password *</label>
+                                <div class="position-relative">
+                                    <input type="password" class="form-control form-control-lg rounded-3 border-2" 
+                                           id="password" placeholder="Create a password" required minlength="8">
+                                    <button type="button" class="btn btn-link position-absolute end-0 top-50 translate-middle-y pe-3 text-muted" 
+                                            onclick="togglePassword()">
+                                        <i class="bi bi-eye" id="passwordToggle"></i>
+                                    </button>
+                                </div>
+                                <small class="text-muted">Password must be at least 8 characters long</small>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="confirmPassword" class="form-label fw-semibold">Confirm password *</label>
+                                <input type="password" class="form-control form-control-lg rounded-3 border-2" 
+                                       id="confirmPassword" placeholder="Confirm your password" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="phone" class="form-label fw-semibold">Phone number (optional)</label>
+                                <input type="tel" class="form-control form-control-lg rounded-3 border-2" 
+                                       id="phone" placeholder="Enter your phone number">
+                                <small class="text-muted">We'll send you text updates about your orders and rewards</small>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="birthday" class="form-label fw-semibold">Birthday (optional)</label>
+                                <input type="date" class="form-control form-control-lg rounded-3 border-2" id="birthday">
+                                <small class="text-muted">We'll send you a special birthday treat!</small>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="checkbox" id="emailOffers" checked>
+                                    <label class="form-check-label text-muted" for="emailOffers">
+                                        Send me emails about special offers and new products
+                                    </label>
+                                </div>
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="checkbox" id="terms" required>
+                                    <label class="form-check-label text-muted" for="terms">
+                                        I agree to the <a href="terms-conditions.html" class="text-success text-decoration-none">Terms of Service</a> 
+                                        and <a href="compliance-privacy.html" class="text-success text-decoration-none">Privacy Policy</a> *
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="rewards" required>
+                                    <label class="form-check-label text-muted" for="rewards">
+                                        I agree to the <a href="terms-conditions.html#rewards" class="text-success text-decoration-none">Starbucks Rewards Terms</a> *
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-success btn-lg w-100 rounded-pill mb-3 py-3 fw-bold">
+                                Create Account
+                            </button>
+                            
+                            <div class="text-center">
+                                <span class="text-muted">Already have an account? </span>
+                                <a href="signin.html" class="text-decoration-none text-success fw-semibold">Sign in</a>
+                            </div>
+                        </form>
+
+                        <hr class="my-4">
+
+                        <div class="text-center">
+                            <p class="text-muted mb-3">Or sign up with</p>
+                            <div class="d-grid gap-2">
+                                <button type="button" class="btn btn-outline-dark btn-lg rounded-pill py-2">
+                                    <i class="bi bi-google me-2"></i>Continue with Google
+                                </button>
+                                <button type="button" class="btn btn-outline-dark btn-lg rounded-pill py-2">
+                                    <i class="bi bi-apple me-2"></i>Continue with Apple
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rewards Preview Section -->
+    <section class="rewards-preview py-5 bg-gradient-success text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h3 class="fw-bold mb-4">Start earning Stars today</h3>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="reward-benefit text-center">
+                                <div class="benefit-icon mb-3">
+                                    <i class="bi bi-star-fill fs-1 text-warning"></i>
+                                </div>
+                                <h5 class="fw-bold">25 Stars</h5>
+                                <p class="mb-0">Customize your drink</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="reward-benefit text-center">
+                                <div class="benefit-icon mb-3">
+                                    <i class="bi bi-cup-hot fs-1 text-warning"></i>
+                                </div>
+                                <h5 class="fw-bold">150 Stars</h5>
+                                <p class="mb-0">Free handcrafted drink</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="reward-benefit text-center">
+                                <div class="benefit-icon mb-3">
+                                    <i class="bi bi-gift fs-1 text-warning"></i>
+                                </div>
+                                <h5 class="fw-bold">200 Stars</h5>
+                                <p class="mb-0">Food or drink item</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="reward-benefit text-center">
+                                <div class="benefit-icon mb-3">
+                                    <i class="bi bi-bag fs-1 text-warning"></i>
+                                </div>
+                                <h5 class="fw-bold">400 Stars</h5>
+                                <p class="mb-0">Packaged coffee or tea</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="imagens/featured-drinks.jpg" alt="Featured Drinks" class="img-fluid rounded-4 shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-light pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h6 class="fw-bold mb-3">About Us</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="our-company.html" class="text-decoration-none text-muted">Our Company</a></li>
+                        <li class="mb-2"><a href="our-coffee.html" class="text-decoration-none text-muted">Our Coffee</a></li>
+                        <li class="mb-2"><a href="customer-service.html" class="text-decoration-none text-muted">Customer Service</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h6 class="fw-bold mb-3">Careers</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="careers.html" class="text-decoration-none text-muted">Career Center</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="compliance-privacy.html" class="text-decoration-none text-muted">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="terms-conditions.html" class="text-decoration-none text-muted">Terms of Use</a></li>
+                        <li class="mb-2"><a href="code-of-ethics.html" class="text-decoration-none text-muted">Code of Ethics</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h6 class="fw-bold mb-3">Social Media</h6>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-muted fs-4"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-muted fs-4"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-muted fs-4"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-muted fs-4"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">&copy; 2025 Starbucks Coffee Company. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <img src="imagens/starbucks-nav-logo.svg" alt="Starbucks" height="40">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.getElementById('passwordToggle');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.className = 'bi bi-eye-slash';
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.className = 'bi bi-eye';
+            }
+        }
+
+        // Form submission handler
+        document.querySelector('.join-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Form validation
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const terms = document.getElementById('terms').checked;
+            const rewards = document.getElementById('rewards').checked;
+            
+            // Check if passwords match
+            if (password !== confirmPassword) {
+                alert('Passwords do not match. Please try again.');
+                return;
+            }
+            
+            // Check if required fields are filled
+            if (!firstName || !lastName || !email || !password || !terms || !rewards) {
+                alert('Please fill in all required fields and accept the terms.');
+                return;
+            }
+            
+            // Check password length
+            if (password.length < 8) {
+                alert('Password must be at least 8 characters long.');
+                return;
+            }
+            
+            // Simulate successful registration
+            alert('Welcome to Starbucks Rewards! Your account has been created successfully.');
+            // In a real application, you would send this data to your backend
+            window.location.href = 'index.html';
+        });
+
+        // Real-time password confirmation validation
+        document.getElementById('confirmPassword').addEventListener('input', function() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = this.value;
+            
+            if (confirmPassword && password !== confirmPassword) {
+                this.classList.add('is-invalid');
+            } else {
+                this.classList.remove('is-invalid');
+            }
+        });
+    </script>
+</body>
+
+</html>
