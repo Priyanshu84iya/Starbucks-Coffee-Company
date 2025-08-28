@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about Starbucks as a company - our corporate structure, business segments, and commitment to stakeholders.">
+    <meta name="keywords" content="Starbucks, company, corporate, business, financial information, stakeholders">
+    <title>Our Company - Starbucks Coffee Company</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="imagens/favicon-16x16.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="imagens/starbucks-nav-logo.svg" alt="Starbucks" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="rewards.html">Rewards</a></li>
+                    <li class="nav-item"><a class="nav-link" href="our-coffee.html">Our Coffee</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about-us.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="our-company.html">Our Company</a></li>
+                    <li class="nav-item"><a class="nav-link" href="social-impact.html">Social Impact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Offcanvas -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+                <li class="nav-item"><a class="nav-link" href="rewards.html">Rewards</a></li>
+                <li class="nav-item"><a class="nav-link" href="our-coffee.html">Our Coffee</a></li>
+                <li class="nav-item"><a class="nav-link" href="about-us.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link active" href="our-company.html">Our Company</a></li>
+                <li class="nav-item"><a class="nav-link" href="social-impact.html">Social Impact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="company-hero py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">Starbucks Corporation</h1>
+                    <p class="lead mb-4">A global leader in coffee retail and roasting, committed to creating exceptional experiences while building a sustainable future.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#business" class="btn btn-success btn-lg rounded-pill px-4">Our Business</a>
+                        <a href="#financials" class="btn btn-outline-success btn-lg rounded-pill px-4">Investor Relations</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="imagens/featured-drinks.jpg" alt="Starbucks Company" class="img-fluid rounded-3 shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Segments -->
+    <section id="business" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="h1 mb-4">Our Business Segments</h2>
+                    <p class="lead">Starbucks operates across multiple business segments to serve customers worldwide.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="business-card h-100 p-4 rounded-3 shadow-sm">
+                        <i class="bi bi-shop display-4 text-success mb-3"></i>
+                        <h4>North America</h4>
+                        <p>Company-operated stores across the United States and Canada, representing our largest market segment.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-check-circle text-success me-2"></i>16,000+ stores</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Mobile order & pay</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Drive-thru locations</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="business-card h-100 p-4 rounded-3 shadow-sm">
+                        <i class="bi bi-globe display-4 text-success mb-3"></i>
+                        <h4>International</h4>
+                        <p>Company-operated and licensed stores in international markets, expanding our global footprint.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-check-circle text-success me-2"></i>22,000+ stores</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>80+ countries</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Local partnerships</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="business-card h-100 p-4 rounded-3 shadow-sm">
+                        <i class="bi bi-basket display-4 text-success mb-3"></i>
+                        <h4>Channel Development</h4>
+                        <p>Expanding beyond our stores through grocery, convenience, and foodservice channels.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Packaged coffee</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Ready-to-drink beverages</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>K-Cup pods</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Corporate Governance -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="h1 mb-4">Corporate Governance</h2>
+                    <p class="lead">Our commitment to transparency, accountability, and ethical business practices.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6 col-md-6">
+                    <div class="governance-card p-4 rounded-3 shadow-sm h-100">
+                        <i class="bi bi-people-fill display-4 text-success mb-3"></i>
+                        <h4>Board of Directors</h4>
+                        <p>Independent and diverse board providing strategic oversight and guidance.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-arrow-right text-success me-2"></i>13 members</li>
+                            <li><i class="bi bi-arrow-right text-success me-2"></i>Diverse backgrounds</li>
+                            <li><i class="bi bi-arrow-right text-success me-2"></i>Industry expertise</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="governance-card p-4 rounded-3 shadow-sm h-100">
+                        <i class="bi bi-shield-check display-4 text-success mb-3"></i>
+                        <h4>Ethics & Compliance</h4>
+                        <p>Strong ethical foundation and compliance programs across all operations.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-arrow-right text-success me-2"></i>Code of conduct</li>
+                            <li><i class="bi bi-arrow-right text-success me-2"></i>Anti-corruption policies</li>
+                            <li><i class="bi bi-arrow-right text-success me-2"></i>Whistleblower protection</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financial Highlights -->
+    <section id="financials" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="h1 mb-4">Financial Highlights</h2>
+                    <p class="lead">Consistent growth and strong financial performance across our business segments.</p>
+                </div>
+            </div>
+            <div class="row g-4 text-center">
+                <div class="col-lg-3 col-md-6">
+                    <div class="financial-stat p-4">
+                        <div class="display-3 fw-bold text-success">$32.3B</div>
+                        <h5>Total Net Revenues</h5>
+                        <p class="text-muted">Fiscal Year 2023</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="financial-stat p-4">
+                        <div class="display-3 fw-bold text-success">$4.1B</div>
+                        <h5>Operating Income</h5>
+                        <p class="text-muted">Strong operational performance</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="financial-stat p-4">
+                        <div class="display-3 fw-bold text-success">38,587</div>
+                        <h5>Total Stores</h5>
+                        <p class="text-muted">Worldwide as of Q4 2023</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="financial-stat p-4">
+                        <div class="display-3 fw-bold text-success">31M</div>
+                        <h5>Starbucks Rewards Members</h5>
+                        <p class="text-muted">Active 90-day members</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investor Information -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="h1 mb-4">Investor Relations</h2>
+                    <p class="lead">Access the latest financial reports, SEC filings, and investor presentations.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="investor-card text-center p-4 rounded-3 shadow-sm h-100">
+                        <i class="bi bi-file-earmark-text display-4 text-success mb-3"></i>
+                        <h4>Annual Reports</h4>
+                        <p>Comprehensive annual reports and 10-K filings with detailed financial and operational information.</p>
+                        <a href="#" class="btn btn-outline-success">View Reports</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="investor-card text-center p-4 rounded-3 shadow-sm h-100">
+                        <i class="bi bi-graph-up display-4 text-success mb-3"></i>
+                        <h4>Quarterly Earnings</h4>
+                        <p>Quarterly earnings reports, earnings calls, and financial performance updates.</p>
+                        <a href="#" class="btn btn-outline-success">View Earnings</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="investor-card text-center p-4 rounded-3 shadow-sm h-100">
+                        <i class="bi bi-presentation display-4 text-success mb-3"></i>
+                        <h4>Presentations</h4>
+                        <p>Investor presentations, conference materials, and strategic updates from leadership.</p>
+                        <a href="#" class="btn btn-outline-success">View Presentations</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stock Information -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="h1 mb-4">Stock Information</h2>
+                    <p class="lead mb-4">Starbucks Corporation trades on NASDAQ under the symbol SBUX.</p>
+                    <div class="stock-details">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="stock-item p-3 bg-light rounded">
+                                    <strong>Exchange:</strong><br>
+                                    NASDAQ Global Select Market
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="stock-item p-3 bg-light rounded">
+                                    <strong>Symbol:</strong><br>
+                                    SBUX
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="stock-item p-3 bg-light rounded">
+                                    <strong>Sector:</strong><br>
+                                    Consumer Discretionary
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="stock-item p-3 bg-light rounded">
+                                    <strong>Industry:</strong><br>
+                                    Restaurants
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="stock-chart-placeholder bg-light p-5 rounded-3 text-center">
+                        <i class="bi bi-graph-up display-1 text-success mb-3"></i>
+                        <h4>Stock Performance</h4>
+                        <p>Visit our investor relations page for real-time stock quotes and interactive charts.</p>
+                        <a href="#" class="btn btn-success">View Live Chart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-starkbucks bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-success mb-3">About Us</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="about-us.html" class="nav-link p-0 text-white">About Us</a></li>
+                        <li class="nav-item mb-2"><a href="our-company.html" class="nav-link p-0 text-white">Our Company</a></li>
+                        <li class="nav-item mb-2"><a href="our-coffee.html" class="nav-link p-0 text-white">Our Coffee</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-success mb-3">Customer Service</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="customer-service.html" class="nav-link p-0 text-white">Customer Service</a></li>
+                        <li class="nav-item mb-2"><a href="compliance-privacy.html" class="nav-link p-0 text-white">Compliance & Privacy</a></li>
+                        <li class="nav-item mb-2"><a href="code-of-ethics.html" class="nav-link p-0 text-white">Code of Ethics and Conduct</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-success mb-3">Careers</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="careers.html" class="nav-link p-0 text-white">Careers</a></li>
+                        <li class="nav-item mb-2"><a href="career-center.html" class="nav-link p-0 text-white">Career Center</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-success mb-3">Social Impact</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="social-impact.html" class="nav-link p-0 text-white">Social Impact</a></li>
+                        <li class="nav-item mb-2"><a href="community.html" class="nav-link p-0 text-white">Community</a></li>
+                        <li class="nav-item mb-2"><a href="environment.html" class="nav-link p-0 text-white">Environment</a></li>
+                        <li class="nav-item mb-2"><a href="ethical-sourcing.html" class="nav-link p-0 text-white">Ethical Sourcing</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 Starbucks Coffee Company. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
