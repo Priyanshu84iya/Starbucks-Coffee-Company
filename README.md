@@ -304,7 +304,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Priyanshu Kumar (Pry Uchiha)**
 - GitHub: [@Priyanshu84iya](https://github.com/Priyanshu84iya)
-- Email: priyanshu84iya@gmail.com
+- Instagram: [@pry_uchiha](https://instagram.com/pry_uchiha)
 
 ## 🙏 Acknowledgments
 
