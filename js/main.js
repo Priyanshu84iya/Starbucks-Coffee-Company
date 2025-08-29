@@ -381,4 +381,96 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    
+    // Company-specific buttons
+    document.addEventListener('click', function(e) {
+        const buttonText = e.target.textContent;
+        
+        if (buttonText.includes('View Reports') || buttonText.includes('View Earnings') || buttonText.includes('View Presentations')) {
+            e.preventDefault();
+            showModal('Investor Relations', `
+                <div class="text-center">
+                    <p>Access our latest ${buttonText.toLowerCase().replace('view ', '')} and financial information.</p>
+                    <div class="mt-4">
+                        <button class="btn btn-success" onclick="showNotification('Document access would be provided here', 'info')">Access Documents</button>
+                    </div>
+                </div>
+            `);
+        } else if (buttonText.includes('View Live Chart')) {
+            e.preventDefault();
+            showModal('Stock Information', `
+                <div class="text-center">
+                    <p>View real-time Starbucks Corporation (SBUX) stock information.</p>
+                    <div class="mt-4">
+                        <button class="btn btn-success" onclick="showNotification('Stock chart would load here', 'info')">View Chart</button>
+                    </div>
+                </div>
+            `);
+        } else if (buttonText.includes('Get Help')) {
+            e.preventDefault();
+            showModal('Customer Support', `
+                <div>
+                    <p>How can we assist you today?</p>
+                    <div class="row g-3 mt-3">
+                        <div class="col-6">
+                            <button class="btn btn-outline-success w-100" onclick="showNotification('Live chat starting...', 'info')">Live Chat</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-outline-success w-100" onclick="showNotification('FAQ section would open', 'info')">View FAQ</button>
+                        </div>
+                    </div>
+                </div>
+            `);
+        } else if (buttonText.includes('View Jobs') || buttonText.includes('Start Your Application')) {
+            e.preventDefault();
+            showModal('Career Opportunities', `
+                <div class="text-center">
+                    <p>Discover exciting career opportunities at Starbucks!</p>
+                    <div class="mt-4">
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <button class="btn btn-outline-success w-100" onclick="showNotification('Job search would open', 'info')">Browse Jobs</button>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn btn-success w-100" onclick="showNotification('Application portal would open', 'info')">Apply Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `);
+        } else if (buttonText.includes('Access Portal') || buttonText.includes('Find Contact')) {
+            e.preventDefault();
+            showModal('Ethics & Compliance', `
+                <div class="text-center">
+                    <p>Access ethics resources and compliance information.</p>
+                    <div class="mt-4">
+                        <button class="btn btn-success" onclick="showNotification('Ethics portal would open', 'info')">Access Resources</button>
+                    </div>
+                </div>
+            `);
+        } else if (buttonText.includes('Submit Privacy Request')) {
+            e.preventDefault();
+            showModal('Privacy Request', `
+                <div>
+                    <p>Submit a privacy-related request or inquiry.</p>
+                    <form class="mt-4" onsubmit="event.preventDefault(); showNotification('Privacy request submitted successfully!', 'success');">
+                        <div class="mb-3">
+                            <label class="form-label">Request Type</label>
+                            <select class="form-select" required>
+                                <option value="">Select request type</option>
+                                <option value="data-access">Data Access Request</option>
+                                <option value="data-deletion">Data Deletion Request</option>
+                                <option value="privacy-inquiry">Privacy Inquiry</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Description</label>
+                            <textarea class="form-control" rows="3" placeholder="Describe your request..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success">Submit Request</button>
+                    </form>
+                </div>
+            `);
+        }
+    });
 });
