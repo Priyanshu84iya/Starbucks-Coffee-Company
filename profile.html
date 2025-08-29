@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Starbucks</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="imagens/favicon-16x16.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="imagens/starbucks-nav-logo.svg" alt="Starbucks" height="40">
+            </a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold text-dark" href="menu.html">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold text-dark" href="rewards.html">Rewards</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold text-dark" href="our-coffee.html">Our Coffee</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold text-dark" href="social-impact.html">Social Impact</a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex align-items-center gap-3">
+                    <a href="store-locator.html" class="btn btn-outline-dark rounded-pill px-3 py-1 text-decoration-none">
+                        <i class="bi bi-geo-alt-fill"></i> Find a store
+                    </a>
+                    <div class="dropdown">
+                        <button class="btn btn-light rounded-pill border-black bg-white py-1 px-3 dropdown-toggle" 
+                                type="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-person-circle"></i> <span id="navUserName">John Doe</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="profile.html"><i class="bi bi-person"></i> My Profile</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="showOrderHistory()"><i class="bi bi-clock-history"></i> Order History</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="showRewardsBalance()"><i class="bi bi-star"></i> My Rewards</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" onclick="signOut()"><i class="bi bi-box-arrow-right"></i> Sign Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Header -->
+    <section class="py-5 bg-gradient-success text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-3 text-center mb-4 mb-md-0">
+                    <div class="profile-avatar mx-auto mb-3">
+                        <i class="bi bi-person-circle display-1"></i>
+                        <button class="btn btn-light btn-sm rounded-circle position-absolute" 
+                                style="bottom: 0; right: 0;" onclick="changeProfilePicture()">
+                            <i class="bi bi-camera"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <h1 class="display-5 fw-bold mb-2" id="profileUserName">John Doe</h1>
+                    <p class="lead mb-2" id="profileEmail">john.doe@email.com</p>
+                    <div class="d-flex align-items-center gap-4 mb-3">
+                        <div class="text-center">
+                            <div class="h4 fw-bold" id="starBalance">1,250</div>
+                            <small>Stars</small>
+                        </div>
+                        <div class="text-center">
+                            <div class="h4 fw-bold" id="memberSince">Gold Member</div>
+                            <small>Status</small>
+                        </div>
+                        <div class="text-center">
+                            <div class="h4 fw-bold" id="totalOrders">47</div>
+                            <small>Total Orders</small>
+                        </div>
+                    </div>
+                    <button class="btn btn-light rounded-pill px-4" onclick="editProfile()">
+                        <i class="bi bi-pencil"></i> Edit Profile
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Content -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Profile Menu -->
+                <div class="col-lg-3 mb-4">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                            <h6 class="card-title fw-bold mb-3">Account</h6>
+                            <nav class="nav flex-column">
+                                <a class="nav-link active px-0 py-2" href="#" onclick="showSection('personal-info')">
+                                    <i class="bi bi-person me-2"></i> Personal Information
+                                </a>
+                                <a class="nav-link px-0 py-2" href="#" onclick="showSection('rewards')">
+                                    <i class="bi bi-star me-2"></i> Rewards & Stars
+                                </a>
+                                <a class="nav-link px-0 py-2" href="#" onclick="showSection('orders')">
+                                    <i class="bi bi-clock-history me-2"></i> Order History
+                                </a>
+                                <a class="nav-link px-0 py-2" href="#" onclick="showSection('payment')">
+                                    <i class="bi bi-credit-card me-2"></i> Payment Methods
+                                </a>
+                                <a class="nav-link px-0 py-2" href="#" onclick="showSection('preferences')">
+                                    <i class="bi bi-gear me-2"></i> Preferences
+                                </a>
+                                <a class="nav-link px-0 py-2" href="#" onclick="showSection('security')">
+                                    <i class="bi bi-shield-lock me-2"></i> Security
+                                </a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Content Area -->
+                <div class="col-lg-9">
+                    <!-- Personal Information Section -->
+                    <div id="personal-info-section" class="content-section">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white border-bottom-0 py-3">
+                                <h5 class="mb-0 fw-bold">Personal Information</h5>
+                            </div>
+                            <div class="card-body">
+                                <form id="profileForm">
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-semibold">First Name</label>
+                                            <input type="text" class="form-control" id="editFirstName" value="John">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-semibold">Last Name</label>
+                                            <input type="text" class="form-control" id="editLastName" value="Doe">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label fw-semibold">Email Address</label>
+                                        <input type="email" class="form-control" id="editEmail" value="john.doe@email.com">
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-semibold">Phone Number</label>
+                                            <input type="tel" class="form-control" id="editPhone" value="+1 (555) 123-4567">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-semibold">Date of Birth</label>
+                                            <input type="date" class="form-control" id="editBirthdate" value="1990-05-15">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label fw-semibold">Address</label>
+                                        <input type="text" class="form-control" id="editAddress" value="123 Main Street, Delhi, India">
+                                    </div>
+                                    <button type="submit" class="btn btn-success rounded-pill px-4">
+                                        Save Changes
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rewards Section -->
+                    <div id="rewards-section" class="content-section d-none">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white border-bottom-0 py-3">
+                                <h5 class="mb-0 fw-bold">Rewards & Stars</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row mb-4">
+                                    <div class="col-md-4 text-center mb-3">
+                                        <div class="bg-success text-white rounded-circle mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                                            <i class="bi bi-star-fill fs-2"></i>
+                                        </div>
+                                        <h3 class="mt-3 mb-1">1,250</h3>
+                                        <p class="text-muted">Total Stars</p>
+                                    </div>
+                                    <div class="col-md-4 text-center mb-3">
+                                        <div class="bg-warning text-white rounded-circle mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                                            <i class="bi bi-trophy-fill fs-2"></i>
+                                        </div>
+                                        <h3 class="mt-3 mb-1 text-warning">Gold</h3>
+                                        <p class="text-muted">Member Status</p>
+                                    </div>
+                                    <div class="col-md-4 text-center mb-3">
+                                        <div class="bg-info text-white rounded-circle mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                                            <i class="bi bi-gift-fill fs-2"></i>
+                                        </div>
+                                        <h3 class="mt-3 mb-1">3</h3>
+                                        <p class="text-muted">Available Rewards</p>
+                                    </div>
+                                </div>
+
+                                <h6 class="fw-bold mb-3">Available Rewards</h6>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <div class="card border">
+                                            <div class="card-body">
+                                                <h6 class="card-title">Free Handcrafted Drink</h6>
+                                                <p class="card-text text-muted small">150 Stars • Expires in 30 days</p>
+                                                <button class="btn btn-outline-success btn-sm">Redeem</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="card border">
+                                            <div class="card-body">
+                                                <h6 class="card-title">Food Item</h6>
+                                                <p class="card-text text-muted small">200 Stars • Expires in 45 days</p>
+                                                <button class="btn btn-outline-success btn-sm">Redeem</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Order History Section -->
+                    <div id="orders-section" class="content-section d-none">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white border-bottom-0 py-3">
+                                <h5 class="mb-0 fw-bold">Order History</h5>
+                            </div>
+                            <div class="card-body">
+                                <div id="orderHistoryList">
+                                    <!-- Orders will be populated here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Methods Section -->
+                    <div id="payment-section" class="content-section d-none">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white border-bottom-0 py-3">
+                                <h5 class="mb-0 fw-bold">Payment Methods</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <p class="mb-0 text-muted">Manage your saved payment methods</p>
+                                    <button class="btn btn-outline-success btn-sm" onclick="addPaymentMethod()">
+                                        <i class="bi bi-plus"></i> Add New
+                                    </button>
+                                </div>
+                                <div id="paymentMethodsList">
+                                    <div class="card border mb-3">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <i class="bi bi-credit-card me-2"></i>
+                                                    <span class="fw-semibold">•••• •••• •••• 4567</span>
+                                                    <span class="badge bg-primary ms-2">Primary</span>
+                                                </div>
+                                                <div>
+                                                    <button class="btn btn-sm btn-outline-secondary me-2">Edit</button>
+                                                    <button class="btn btn-sm btn-outline-danger">Remove</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Preferences Section -->
+                    <div id="preferences-section" class="content-section d-none">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white border-bottom-0 py-3">
+                                <h5 class="mb-0 fw-bold">Preferences</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-4">
+                                    <h6 class="fw-semibold mb-3">Notifications</h6>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="emailNotifications" checked>
+                                        <label class="form-check-label" for="emailNotifications">
+                                            Email notifications about offers and promotions
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="smsNotifications">
+                                        <label class="form-check-label" for="smsNotifications">
+                                            SMS notifications for order updates
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="pushNotifications" checked>
+                                        <label class="form-check-label" for="pushNotifications">
+                                            Push notifications from the mobile app
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <h6 class="fw-semibold mb-3">Favorite Store</h6>
+                                    <select class="form-select" id="favoriteStore">
+                                        <option selected>Select a store</option>
+                                        <option value="1">Connaught Place - Delhi</option>
+                                        <option value="2">Khan Market - Delhi</option>
+                                        <option value="3">DLF Mall - Gurgaon</option>
+                                    </select>
+                                </div>
+                                <button class="btn btn-success rounded-pill px-4">Save Preferences</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security Section -->
+                    <div id="security-section" class="content-section d-none">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white border-bottom-0 py-3">
+                                <h5 class="mb-0 fw-bold">Security</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-4">
+                                    <h6 class="fw-semibold mb-3">Change Password</h6>
+                                    <form id="passwordChangeForm">
+                                        <div class="mb-3">
+                                            <label class="form-label">Current Password</label>
+                                            <input type="password" class="form-control" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">New Password</label>
+                                            <input type="password" class="form-control" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Confirm New Password</label>
+                                            <input type="password" class="form-control" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-success rounded-pill px-4">
+                                            Update Password
+                                        </button>
+                                    </form>
+                                </div>
+                                <div class="mb-4">
+                                    <h6 class="fw-semibold mb-3">Two-Factor Authentication</h6>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <p class="mb-1">Secure your account with 2FA</p>
+                                            <small class="text-muted">Currently disabled</small>
+                                        </div>
+                                        <button class="btn btn-outline-success">Enable 2FA</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-success text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-success mb-3">About Us</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="our-company.html" class="nav-link p-0 text-white">Our Company</a></li>
+                        <li class="nav-item mb-2"><a href="our-coffee.html" class="nav-link p-0 text-white">Our Coffee</a></li>
+                        <li class="nav-item mb-2"><a href="customer-service.html" class="nav-link p-0 text-white">Customer Service</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-success mb-3">Quick Links</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="menu.html" class="nav-link p-0 text-white">Menu</a></li>
+                        <li class="nav-item mb-2"><a href="rewards.html" class="nav-link p-0 text-white">Rewards</a></li>
+                        <li class="nav-item mb-2"><a href="store-locator.html" class="nav-link p-0 text-white">Store Locator</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-success mb-3">Legal</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="compliance-privacy.html" class="nav-link p-0 text-white">Privacy Policy</a></li>
+                        <li class="nav-item mb-2"><a href="terms-conditions.html" class="nav-link p-0 text-white">Terms of Use</a></li>
+                        <li class="nav-item mb-2"><a href="code-of-ethics.html" class="nav-link p-0 text-white">Code of Ethics</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-success mb-3">Follow Us</h5>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 Starbucks Coffee Company. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="d-flex justify-content-center justify-content-md-end align-items-center">
+                        <p class="text-white small mb-0 me-2">Developed by Pry Uchiha</p>
+                        <a href="https://github.com/Priyanshu84iya" target="_blank" class="text-white" title="Visit GitHub Profile">
+                            <i class="bi bi-github fs-6"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+
+</html>

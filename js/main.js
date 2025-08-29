@@ -474,3 +474,219 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Authentication System
+// Initialize fake user database
+function initializeUserDatabase() {
+    if (!localStorage.getItem('starbucksUsers')) {
+        const sampleUsers = [
+            {
+                firstName: 'John',
+                lastName: 'Doe',
+                email: 'john.doe@email.com',
+                password: 'password123',
+                phone: '+1 (555) 123-4567',
+                birthdate: '1990-05-15',
+                address: '123 Main Street, Delhi, India',
+                stars: 1250,
+                memberStatus: 'Gold Member',
+                totalOrders: 47,
+                joinDate: '2023-01-15'
+            },
+            {
+                firstName: 'Jane',
+                lastName: 'Smith',
+                email: 'jane.smith@email.com',
+                password: 'password123',
+                phone: '+1 (555) 987-6543',
+                birthdate: '1988-08-22',
+                address: '456 Oak Avenue, Mumbai, India',
+                stars: 850,
+                memberStatus: 'Silver Member',
+                totalOrders: 23,
+                joinDate: '2023-03-10'
+            }
+        ];
+        localStorage.setItem('starbucksUsers', JSON.stringify(sampleUsers));
+    }
+}
+
+// Sign in function
+function signIn(email, password) {
+    const users = JSON.parse(localStorage.getItem('starbucksUsers')) || [];
+    const user = users.find(u => u.email === email && u.password === password);
+    
+    if (user) {
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        return { success: true, user: user };
+    } else {
+        return { success: false, message: 'Invalid email or password' };
+    }
+}
+
+// Sign up function
+function signUp(userData) {
+    const users = JSON.parse(localStorage.getItem('starbucksUsers')) || [];
+    
+    // Check if user already exists
+    if (users.find(u => u.email === userData.email)) {
+        return { success: false, message: 'An account with this email already exists' };
+    }
+    
+    // Create new user
+    const newUser = {
+        ...userData,
+        stars: 0,
+        memberStatus: 'Green Member',
+        totalOrders: 0,
+        joinDate: new Date().toISOString().split('T')[0]
+    };
+    
+    users.push(newUser);
+    localStorage.setItem('starbucksUsers', JSON.stringify(users));
+    localStorage.setItem('currentUser', JSON.stringify(newUser));
+    
+    return { success: true, user: newUser };
+}
+
+// Check if user is logged in
+function isLoggedIn() {
+    return localStorage.getItem('currentUser') !== null;
+}
+
+// Get current user
+function getCurrentUser() {
+    const user = localStorage.getItem('currentUser');
+    return user ? JSON.parse(user) : null;
+}
+
+// Sign out function
+function signOut() {
+    localStorage.removeItem('currentUser');
+    window.location.href = 'index.html';
+}
+
+// Handle sign-in form submission
+function handleSignIn() {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    
+    const result = signIn(email, password);
+    
+    if (result.success) {
+        showNotification('Welcome back, ' + result.user.firstName + '!', 'success');
+        setTimeout(() => {
+            window.location.href = 'profile.html';
+        }, 1500);
+    } else {
+        showNotification(result.message, 'error');
+    }
+}
+
+// Handle join form submission
+function handleJoin() {
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+    
+    // Validate passwords match
+    if (password !== confirmPassword) {
+        showNotification('Passwords do not match!', 'error');
+        return;
+    }
+    
+    // Validate password strength
+    if (password.length < 6) {
+        showNotification('Password must be at least 6 characters long!', 'error');
+        return;
+    }
+    
+    const userData = {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        password: password
+    };
+    
+    const result = signUp(userData);
+    
+    if (result.success) {
+        showNotification('Welcome to Starbucks Rewards, ' + result.user.firstName + '!', 'success');
+        setTimeout(() => {
+            window.location.href = 'profile.html';
+        }, 1500);
+    } else {
+        showNotification(result.message, 'error');
+    }
+}
+
+// Update navigation for authenticated users
+function updateNavigationForAuth() {
+    const currentUser = getCurrentUser();
+    const authButtons = document.querySelector('.auth-buttons');
+    
+    if (currentUser && authButtons) {
+        // Replace sign in/join buttons with user menu
+        authButtons.innerHTML = `
+            <div class="dropdown">
+                <button class="btn btn-light rounded-pill border-black bg-white py-1 px-3 dropdown-toggle" 
+                        type="button" data-bs-toggle="dropdown">
+                    <i class="bi bi-person-circle"></i> ${currentUser.firstName} ${currentUser.lastName}
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="profile.html"><i class="bi bi-person"></i> My Profile</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="showOrderHistory()"><i class="bi bi-clock-history"></i> Order History</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="showRewardsBalance()"><i class="bi bi-star"></i> My Rewards</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#" onclick="signOut()"><i class="bi bi-box-arrow-right"></i> Sign Out</a></li>
+                </ul>
+            </div>
+        `;
+    }
+}
+
+// Show order history
+function showOrderHistory() {
+    if (isLoggedIn()) {
+        window.location.href = 'profile.html#orders';
+    } else {
+        showNotification('Please sign in to view your orders', 'info');
+    }
+}
+
+// Show rewards balance
+function showRewardsBalance() {
+    if (isLoggedIn()) {
+        window.location.href = 'profile.html#rewards';
+    } else {
+        showNotification('Please sign in to view your rewards', 'info');
+    }
+}
+
+// Initialize authentication system when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    initializeUserDatabase();
+    
+    // Update navigation based on auth status
+    updateNavigationForAuth();
+    
+    // Handle sign-in form
+    const signInForm = document.getElementById('signin-form');
+    if (signInForm) {
+        signInForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            handleSignIn();
+        });
+    }
+    
+    // Handle join form
+    const joinForm = document.getElementById('join-form');
+    if (joinForm) {
+        joinForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            handleJoin();
+        });
+    }
+});
