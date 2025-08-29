@@ -156,54 +156,72 @@ function changePassword() {
 }
 
 // Load order history
+// Load order history
 function loadOrderHistory() {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if (!currentUser) return;
     
-    // Get user's orders from localStorage or create sample data
-    let orders = JSON.parse(localStorage.getItem('userOrders_' + currentUser.email)) || [
-        {
-            id: 'ORD001',
-            date: '2024-01-15',
-            time: '09:30 AM',
-            store: 'Connaught Place',
-            items: ['Grande Caffe Latte', 'Blueberry Muffin'],
-            total: 485,
-            status: 'Completed'
-        },
-        {
-            id: 'ORD002',
-            date: '2024-01-12',
-            time: '02:15 PM',
-            store: 'Khan Market',
-            items: ['Venti Frappuccino', 'Chocolate Croissant'],
-            total: 625,
-            status: 'Completed'
-        },
-        {
-            id: 'ORD003',
-            date: '2024-01-08',
-            time: '11:45 AM',
-            store: 'DLF Mall',
-            items: ['Tall Americano', 'Sandwich'],
-            total: 395,
-            status: 'Completed'
-        }
-    ];
+    // Get user's real orders from cart system
+    let orders = JSON.parse(localStorage.getItem(`orderHistory_${currentUser.email}`)) || [];
+    
+    // If no real orders, create sample data
+    if (orders.length === 0) {
+        orders = [
+            {
+                id: 'SB' + Date.now().toString().slice(-6) + '001',
+                items: [
+                    { name: 'Grande Caffè Latte', price: 285, quantity: 1 },
+                    { name: 'Blueberry Muffin', price: 195, quantity: 1 }
+                ],
+                total: '₹564.60',
+                orderType: 'pickup',
+                paymentMethod: 'credit',
+                status: 'Completed',
+                date: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(),
+                estimatedTime: '15-20 minutes',
+                customerInfo: {
+                    phone: currentUser.phone || '+91 98765 43210',
+                    email: currentUser.email
+                }
+            },
+            {
+                id: 'SB' + Date.now().toString().slice(-6) + '002',
+                items: [
+                    { name: 'Venti Frappuccino', price: 395, quantity: 1 },
+                    { name: 'Chocolate Croissant', price: 225, quantity: 1 }
+                ],
+                total: '₹731.40',
+                orderType: 'delivery',
+                paymentMethod: 'upi',
+                status: 'Completed',
+                date: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString(),
+                estimatedTime: '30-45 minutes',
+                customerInfo: {
+                    phone: currentUser.phone || '+91 98765 43210',
+                    email: currentUser.email
+                }
+            }
+        ];
+        localStorage.setItem(`orderHistory_${currentUser.email}`, JSON.stringify(orders));
+    }
     
     // Generate order history HTML
-    const orderHistoryHTML = orders.map(order => `
+    const orderHistoryHTML = orders.map(order => {
+        const orderDate = new Date(order.date);
+        const statusBadgeClass = getStatusBadgeClass(order.status);
+        
+        return `
         <div class="card border mb-3">
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-md-8">
                         <h6 class="card-title mb-1">Order #${order.id}</h6>
-                        <p class="text-muted small mb-1">${order.date} at ${order.time} • ${order.store}</p>
-                        <p class="mb-1">${order.items.join(', ')}</p>
-                        <span class="badge bg-success">${order.status}</span>
+                        <p class="text-muted small mb-1">${formatOrderDate(orderDate)} • ${order.orderType === 'pickup' ? 'Pickup' : 'Delivery'}</p>
+                        <p class="mb-1">${order.items.map(item => `${item.quantity}x ${item.name}`).join(', ')}</p>
+                        <span class="badge ${statusBadgeClass}">${order.status}</span>
                     </div>
                     <div class="col-md-4 text-md-end">
-                        <h6 class="mb-1">₹${order.total}</h6>
+                        <h6 class="mb-1">${order.total}</h6>
                         <button class="btn btn-outline-success btn-sm" onclick="reorderItems('${order.id}')">
                             Reorder
                         </button>
@@ -211,11 +229,44 @@ function loadOrderHistory() {
                 </div>
             </div>
         </div>
-    `).join('');
+    `;
+    }).join('');
     
     document.getElementById('orderHistoryList').innerHTML = orderHistoryHTML;
 }
 
+// Get status badge class
+function getStatusBadgeClass(status) {
+    switch (status.toLowerCase()) {
+        case 'preparing':
+            return 'bg-warning';
+        case 'ready':
+            return 'bg-info';
+        case 'completed':
+            return 'bg-success';
+        case 'cancelled':
+            return 'bg-danger';
+        default:
+            return 'bg-secondary';
+    }
+}
+
+// Format order date
+function formatOrderDate(date) {
+    return date.toLocaleDateString('en-IN', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+}
+    
+    // Generate order history HTML
+    const orderHistoryHTML = orders.map(order => `
+        <div class="card border mb-3">
+            <div class="card-body">
+                <div class="row align-items-center">
 // Reorder items
 function reorderItems(orderId) {
     showNotification('Items added to cart!', 'success');

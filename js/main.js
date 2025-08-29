@@ -6,24 +6,35 @@ let cart = JSON.parse(localStorage.getItem('starbucksCart')) || [];
 
 // Update cart display
 function updateCartCounter() {
-    const cartCounter = document.querySelector('.cart-counter');
-    if (cartCounter) {
-        cartCounter.textContent = cart.length;
-        cartCounter.style.display = cart.length > 0 ? 'inline' : 'none';
-    }
+    const cartCounters = document.querySelectorAll('.cart-counter');
+    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+    
+    cartCounters.forEach(counter => {
+        counter.textContent = totalItems;
+        counter.style.display = totalItems > 0 ? 'inline' : 'none';
+    });
 }
 
 // Add item to cart
 function addToCart(itemName, price, image) {
-    const item = {
-        id: Date.now(),
-        name: itemName,
-        price: price,
-        image: image,
-        quantity: 1
-    };
+    // Check if item already exists in cart
+    const existingItemIndex = cart.findIndex(item => item.name === itemName);
     
-    cart.push(item);
+    if (existingItemIndex !== -1) {
+        // Update quantity if item exists
+        cart[existingItemIndex].quantity += 1;
+    } else {
+        // Add new item
+        const item = {
+            id: Date.now() + Math.random(),
+            name: itemName,
+            price: price,
+            image: image || 'imagens/featured-drinks.jpg',
+            quantity: 1
+        };
+        cart.push(item);
+    }
+    
     localStorage.setItem('starbucksCart', JSON.stringify(cart));
     updateCartCounter();
     
