@@ -2,7 +2,7 @@
 
 ![Starbucks Logo](imagens/starbucks-nav-logo.svg)
 
-A comprehensive, fully functional Starbucks website clone built with modern web technologies. This project includes complete user authentication, shopping cart functionality, payment processing simulation, and order management system.
+A comprehensive, fully functional Starbucks website clone built with modern web technologies. This project includes complete user authentication, shopping cart functionality, payment processing sim[...]
 
 ## 🌟 Features Overview
 
@@ -304,7 +304,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Priyanshu Kumar (Pry Uchiha)**
 - GitHub: [@Priyanshu84iya](https://github.com/Priyanshu84iya)
-- Instagram: [@pry_uchiha](https://instagram.com/pry_uchiha)
+- Instagram: [www.instagram.com/priyansh.u26](https://www.instagram.com/priyansh.u26)
 
 ## 🙏 Acknowledgments
 
